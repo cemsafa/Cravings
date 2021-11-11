@@ -13,9 +13,13 @@
 		B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A891273AF8C0008E1B9E /* Main.storyboard */; };
 		B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A894273AF8C4008E1B9E /* Assets.xcassets */; };
 		B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */; };
+		B1CA6C6F273DA48200F949CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */; };
+		D78FC6B5325FF4A28F75E887 /* Pods_Cravings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A8B205FDE955D9FFADDD936 /* Pods-Cravings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.release.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.release.xcconfig"; sourceTree = "<group>"; };
+		A1C5FD667479BABF2D2FDB88 /* Pods-Cravings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.debug.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.debug.xcconfig"; sourceTree = "<group>"; };
 		B1A3A888273AF8C0008E1B9E /* Cravings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cravings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A3A88B273AF8C0008E1B9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A3A88D273AF8C0008E1B9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		B1A3A894273AF8C4008E1B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1A3A897273AF8C4008E1B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1A3A899273AF8C4008E1B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cravings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78FC6B5325FF4A28F75E887 /* Pods_Cravings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		797F469FDAB044AA1F4AF861 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1C5FD667479BABF2D2FDB88 /* Pods-Cravings.debug.xcconfig */,
+				6A8B205FDE955D9FFADDD936 /* Pods-Cravings.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B1A3A87F273AF8C0008E1B9E = {
 			isa = PBXGroup;
 			children = (
 				B1A3A88A273AF8C0008E1B9E /* Cravings */,
 				B1A3A889273AF8C0008E1B9E /* Products */,
+				797F469FDAB044AA1F4AF861 /* Pods */,
+				B80F4E1653EB187A3A5CA236 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +82,17 @@
 				B1A3A894273AF8C4008E1B9E /* Assets.xcassets */,
 				B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */,
 				B1A3A899273AF8C4008E1B9E /* Info.plist */,
+				B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */,
 			);
 			path = Cravings;
+			sourceTree = "<group>";
+		};
+		B80F4E1653EB187A3A5CA236 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1A3A89C273AF8C4008E1B9E /* Build configuration list for PBXNativeTarget "Cravings" */;
 			buildPhases = (
+				96CFB4023A0091BF25ECFAB3 /* [CP] Check Pods Manifest.lock */,
 				B1A3A884273AF8C0008E1B9E /* Sources */,
 				B1A3A885273AF8C0008E1B9E /* Frameworks */,
 				B1A3A886273AF8C0008E1B9E /* Resources */,
+				9700A6F5E18AF722335A52EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +156,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */,
+				B1CA6C6F273DA48200F949CD /* GoogleService-Info.plist in Resources */,
 				B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */,
 				B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		96CFB4023A0091BF25ECFAB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cravings-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9700A6F5E18AF722335A52EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cravings/Pods-Cravings-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cravings/Pods-Cravings-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cravings/Pods-Cravings-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1A3A884273AF8C0008E1B9E /* Sources */ = {
@@ -284,6 +357,7 @@
 		};
 		B1A3A89D273AF8C4008E1B9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1C5FD667479BABF2D2FDB88 /* Pods-Cravings.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +386,7 @@
 		};
 		B1A3A89E273AF8C4008E1B9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A8B205FDE955D9FFADDD936 /* Pods-Cravings.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
