@@ -177,10 +177,11 @@
                             <constraint firstItem="hgH-xB-VAD" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Pzo-kd-o0P"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ez3-Zt-zlC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1584.057971014493" y="-40.178571428571423"/>
+            <point key="canvasLocation" x="-676.81159420289862" y="-40.760869565217398"/>
         </scene>
         <!--Login PageVC-->
         <scene sceneID="riV-Yv-OoZ">
@@ -322,9 +323,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vD-Pg-eFq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-894" y="-41"/>
+            <point key="canvasLocation" x="35" y="-41"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="wTK-XZ-Ph1">
             <objects>
                 <viewController id="08R-LJ-glM" sceneMemberID="viewController">
@@ -333,43 +334,71 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WM3-Ug-yXx">
-                                <rect key="frame" x="0.0" y="234" width="414" height="420"/>
+                                <rect key="frame" x="0.0" y="198" width="414" height="477"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.84705882349999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jJ7-jo-RWP">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="210" height="195"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lPY-5c-e7K">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="102" y="0.0" width="210" height="195"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XEk-LD-cZI">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="210" height="195"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foodimage1.png" translatesAutoresizingMaskIntoConstraints="NO" id="xhk-Db-nym">
+                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="161"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="210" height="195"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Cravings2" translatesAutoresizingMaskIntoConstraints="NO" id="lxA-3r-aWx">
-                                <rect key="frame" x="20" y="20" width="199" height="58"/>
+                                <rect key="frame" x="38" y="55" width="219" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uFH-gC-6Mz"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="7yD-Pm-Ls1"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfF-mJ-5yw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186.95652173913044" y="-41.576086956521742"/>
+            <point key="canvasLocation" x="747.82608695652175" y="-42.391304347826093"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="79E-lN-Bdc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l12-gg-kHg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fLp-pd-n7Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="D1G-qr-kY1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9F5-AS-DJv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1584.057971014493" y="-40.760869565217398"/>
         </scene>
     </scenes>
     <resources>
         <image name="Cravings2" width="219" height="77"/>
         <image name="fbicon" width="10" height="18"/>
+        <image name="foodimage1.png" width="1080" height="1080"/>
         <image name="googleicon" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
