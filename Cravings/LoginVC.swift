@@ -1,13 +1,13 @@
 //
-//  LoginPageVC.swift
+//  LoginVC.swift
 //  Cravings
 //
-//  Created by Ma. Kristina Ginga on 2021-11-15.
+//  Created by Cem Safa on 2021-11-15.
 //
 
 import UIKit
 
-class LoginPageVC: UIViewController {
+class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
