@@ -181,11 +181,29 @@
             </objects>
             <point key="canvasLocation" x="-1584.057971014493" y="-40.178571428571423"/>
         </scene>
+        <!--Login PageVC-->
+        <scene sceneID="riV-Yv-OoZ">
+            <objects>
+                <viewController id="18i-Wb-EPa" customClass="LoginPageVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QMe-3q-ck8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3Kl-Q9-4gP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9vD-Pg-eFq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-858" y="-40"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Cravings2" width="219" height="77"/>
         <image name="fbicon" width="10" height="18"/>
         <image name="googleicon" width="22" height="22"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
