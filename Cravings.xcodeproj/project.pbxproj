@@ -15,6 +15,7 @@
 		B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */; };
 		B1CA6C6F273DA48200F949CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */; };
 		D78FC6B5325FF4A28F75E887 /* Pods_Cravings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */; };
+		D923AFF02742365D0013C8BC /* la_google.svg in Resources */ = {isa = PBXBuildFile; fileRef = D923AFEF2742365D0013C8BC /* la_google.svg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		B1A3A897273AF8C4008E1B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1A3A899273AF8C4008E1B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D923AFEF2742365D0013C8BC /* la_google.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = la_google.svg; sourceTree = "<group>"; };
 		F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cravings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				B1A3A88F273AF8C0008E1B9E /* SignupPageVC.swift */,
 				B1A3A891273AF8C0008E1B9E /* Main.storyboard */,
 				B1A3A894273AF8C4008E1B9E /* Assets.xcassets */,
+				D923AFEF2742365D0013C8BC /* la_google.svg */,
 				B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */,
 				B1A3A899273AF8C4008E1B9E /* Info.plist */,
 				B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */,
@@ -158,6 +161,7 @@
 				B1CA6C6F273DA48200F949CD /* GoogleService-Info.plist in Resources */,
 				B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */,
 				B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */,
+				D923AFF02742365D0013C8BC /* la_google.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
