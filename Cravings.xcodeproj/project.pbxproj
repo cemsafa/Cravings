@@ -10,13 +10,13 @@
 		B19B1A8627430FE3000CA953 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B19B1A8527430FE3000CA953 /* GoogleService-Info.plist */; };
 		B19B1A8827431619000CA953 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B1A8727431619000CA953 /* LoginVC.swift */; };
 		B19B1A8A2743162D000CA953 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B1A892743162D000CA953 /* RegisterVC.swift */; };
+		B19B1A9027431C9E000CA953 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B1A8F27431C9E000CA953 /* Models.swift */; };
 		B1A3A88C273AF8C0008E1B9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A3A88B273AF8C0008E1B9E /* AppDelegate.swift */; };
 		B1A3A88E273AF8C0008E1B9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A3A88D273AF8C0008E1B9E /* SceneDelegate.swift */; };
 		B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A891273AF8C0008E1B9E /* Main.storyboard */; };
 		B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A894273AF8C4008E1B9E /* Assets.xcassets */; };
 		B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */; };
 		D78FC6B5325FF4A28F75E887 /* Pods_Cravings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */; };
-		D9205F342742DF1400253999 /* foodimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D9205F332742DF1400253999 /* foodimage1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +25,7 @@
 		B19B1A8527430FE3000CA953 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B19B1A8727431619000CA953 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B19B1A892743162D000CA953 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		B19B1A8F27431C9E000CA953 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		B1A3A888273AF8C0008E1B9E /* Cravings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cravings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A3A88B273AF8C0008E1B9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A3A88D273AF8C0008E1B9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		B1A3A894273AF8C4008E1B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1A3A897273AF8C4008E1B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1A3A899273AF8C4008E1B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9205F332742DF1400253999 /* foodimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodimage1.png; sourceTree = "<group>"; };
 		F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cravings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -57,6 +57,42 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B19B1A8B27431B4F000CA953 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B19B1A8727431619000CA953 /* LoginVC.swift */,
+				B19B1A892743162D000CA953 /* RegisterVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B19B1A8C27431B70000CA953 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1A3A891273AF8C0008E1B9E /* Main.storyboard */,
+				B1A3A894273AF8C4008E1B9E /* Assets.xcassets */,
+				B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B19B1A8D27431B78000CA953 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B19B1A8F27431C9E000CA953 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B19B1A8E27431B87000CA953 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B1A3A88B273AF8C0008E1B9E /* AppDelegate.swift */,
+				B1A3A88D273AF8C0008E1B9E /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		B1A3A87F273AF8C0008E1B9E = {
 			isa = PBXGroup;
 			children = (
@@ -78,16 +114,12 @@
 		B1A3A88A273AF8C0008E1B9E /* Cravings */ = {
 			isa = PBXGroup;
 			children = (
-				B1A3A88B273AF8C0008E1B9E /* AppDelegate.swift */,
-				B1A3A88D273AF8C0008E1B9E /* SceneDelegate.swift */,
-				B1A3A891273AF8C0008E1B9E /* Main.storyboard */,
-				B1A3A894273AF8C4008E1B9E /* Assets.xcassets */,
-				D9205F332742DF1400253999 /* foodimage1.png */,
-				B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */,
+				B19B1A8E27431B87000CA953 /* Resources */,
+				B19B1A8D27431B78000CA953 /* Models */,
+				B19B1A8C27431B70000CA953 /* Views */,
+				B19B1A8B27431B4F000CA953 /* Controllers */,
 				B1A3A899273AF8C4008E1B9E /* Info.plist */,
 				B19B1A8527430FE3000CA953 /* GoogleService-Info.plist */,
-				B19B1A8727431619000CA953 /* LoginVC.swift */,
-				B19B1A892743162D000CA953 /* RegisterVC.swift */,
 			);
 			path = Cravings;
 			sourceTree = "<group>";
@@ -161,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */,
-				D9205F342742DF1400253999 /* foodimage1.png in Resources */,
 				B19B1A8627430FE3000CA953 /* GoogleService-Info.plist in Resources */,
 				B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */,
 				B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */,
@@ -221,6 +252,7 @@
 				B19B1A8A2743162D000CA953 /* RegisterVC.swift in Sources */,
 				B1A3A88E273AF8C0008E1B9E /* SceneDelegate.swift in Sources */,
 				B19B1A8827431619000CA953 /* LoginVC.swift in Sources */,
+				B19B1A9027431C9E000CA953 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
