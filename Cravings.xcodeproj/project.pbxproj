@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B19B1A8627430FE3000CA953 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B19B1A8527430FE3000CA953 /* GoogleService-Info.plist */; };
 		B1A3A88C273AF8C0008E1B9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A3A88B273AF8C0008E1B9E /* AppDelegate.swift */; };
 		B1A3A88E273AF8C0008E1B9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A3A88D273AF8C0008E1B9E /* SceneDelegate.swift */; };
 		B1A3A890273AF8C0008E1B9E /* SignupPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A3A88F273AF8C0008E1B9E /* SignupPageVC.swift */; };
 		B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A891273AF8C0008E1B9E /* Main.storyboard */; };
 		B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A894273AF8C4008E1B9E /* Assets.xcassets */; };
 		B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */; };
-		B1CA6C6F273DA48200F949CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */; };
 		D78FC6B5325FF4A28F75E887 /* Pods_Cravings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */; };
 		D9205F342742DF1400253999 /* foodimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D9205F332742DF1400253999 /* foodimage1.png */; };
 		D923AFF4274247A10013C8BC /* LoginPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D923AFF3274247A10013C8BC /* LoginPageVC.swift */; };
@@ -22,6 +22,7 @@
 /* Begin PBXFileReference section */
 		6A8B205FDE955D9FFADDD936 /* Pods-Cravings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.release.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.release.xcconfig"; sourceTree = "<group>"; };
 		A1C5FD667479BABF2D2FDB88 /* Pods-Cravings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.debug.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.debug.xcconfig"; sourceTree = "<group>"; };
+		B19B1A8527430FE3000CA953 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1A3A888273AF8C0008E1B9E /* Cravings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cravings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1A3A88B273AF8C0008E1B9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1A3A88D273AF8C0008E1B9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +31,6 @@
 		B1A3A894273AF8C4008E1B9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1A3A897273AF8C4008E1B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1A3A899273AF8C4008E1B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9205F332742DF1400253999 /* foodimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodimage1.png; sourceTree = "<group>"; };
 		D923AFF3274247A10013C8BC /* LoginPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageVC.swift; sourceTree = "<group>"; };
 		F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cravings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +87,7 @@
 				D9205F332742DF1400253999 /* foodimage1.png */,
 				B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */,
 				B1A3A899273AF8C4008E1B9E /* Info.plist */,
-				B1CA6C6E273DA48200F949CD /* GoogleService-Info.plist */,
+				B19B1A8527430FE3000CA953 /* GoogleService-Info.plist */,
 			);
 			path = Cravings;
 			sourceTree = "<group>";
@@ -161,8 +161,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */,
-				B1CA6C6F273DA48200F949CD /* GoogleService-Info.plist in Resources */,
 				D9205F342742DF1400253999 /* foodimage1.png in Resources */,
+				B19B1A8627430FE3000CA953 /* GoogleService-Info.plist in Resources */,
 				B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */,
 				B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */,
 			);
