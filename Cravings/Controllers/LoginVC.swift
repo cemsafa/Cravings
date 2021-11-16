@@ -43,7 +43,7 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signupLblTapped(sender: UITapGestureRecognizer) {
-        let registerVC = RegisterVC()
+        guard let registerVC = storyboard?.instantiateViewController(withIdentifier: "registerVC") else { return }
         registerVC.modalPresentationStyle = .fullScreen
         present(registerVC, animated: true, completion: nil)
     }

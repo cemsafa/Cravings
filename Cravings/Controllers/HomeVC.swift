@@ -23,10 +23,9 @@ class HomeVC: UIViewController {
     
     func handleNotAuthenticated() {
         if Auth.auth().currentUser == nil {
-            let loginVC = LoginVC()
-            let navController = UINavigationController(rootViewController: loginVC)
-            navController.modalPresentationStyle = .fullScreen
-            present(navController, animated: false)
+            guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginVC") else { return }
+            loginVC.modalPresentationStyle = .fullScreen
+            present(loginVC, animated: false)
         }
     }
 
