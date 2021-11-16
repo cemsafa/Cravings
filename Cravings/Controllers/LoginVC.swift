@@ -35,10 +35,18 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func forgotLblTapped(sender: UITapGestureRecognizer) {
-        AuthManager.shared.sendPasswordReset(withEmail: emailField.text!) { error in
-            let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+        emailField.resignFirstResponder()
+        guard let email = emailField.text else { return }
+        AuthManager.shared.sendPasswordReset(withEmail: email) { error in
+            if error != nil {
+                let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Success", message: "Please check your email", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -48,4 +56,20 @@ class LoginVC: UIViewController {
         present(registerVC, animated: true, completion: nil)
     }
 
+    @IBAction func loginBtnTapped(_ sender: Any) {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        guard let email = emailField.text, let password = passwordField.text else { return }
+        AuthManager.shared.loginUser(email: email, password: password) { success,error in
+            DispatchQueue.main.async {
+                if success {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    let alert = UIAlertController(title: "Log In Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+    }
 }
