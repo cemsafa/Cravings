@@ -11,20 +11,37 @@ import UIKit
 class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     
-    @IBOutlet weak var foodImageVC: UICollectionView!
+    @IBOutlet weak var foodImageCollectionView: UICollectionView!
+    
+    //statically added images for UI testing only
+    let foods = ["dessert", "ramen" ]
+    
+    let foodImages: [UIImage] = [
+        UIImage(named: "dessert")!,
+        UIImage(named: "ramen")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        foodImageCollectionView.dataSource = self
+        foodImageCollectionView.delegate = self
 
-        // Do any additional setup after loading the view.
+      
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return foods.count
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        
+        let cell = foodImageCollectionView.dequeueReusableCell(withReuseIdentifier: "foodImageCell", for: indexPath) as! FoodImageCollectionViewCell
+        cell.foodImageView.image = foodImages[indexPath.item]
+                
+                return cell
+        
     }
     
     

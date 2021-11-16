@@ -18,6 +18,8 @@
 		D78FC6B5325FF4A28F75E887 /* Pods_Cravings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */; };
 		D9518BED27442DC0001C1AE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9518BE927442337001C1AE4 /* GoogleService-Info.plist */; };
 		D9518BF22744431C001C1AE4 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9518BF12744431C001C1AE4 /* HomeVC.swift */; };
+		D9518BF427444EE5001C1AE4 /* FoodImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9518BF327444EE5001C1AE4 /* FoodImageCollectionViewCell.swift */; };
+		D9518BF627445D8A001C1AE4 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9518BF527445D8A001C1AE4 /* AddVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		D9518BE927442337001C1AE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9518BEA27442337001C1AE4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9518BF12744431C001C1AE4 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		D9518BF327444EE5001C1AE4 /* FoodImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		D9518BF527445D8A001C1AE4 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cravings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -65,6 +69,8 @@
 				B19B1A8727431619000CA953 /* LoginVC.swift */,
 				B19B1A892743162D000CA953 /* RegisterVC.swift */,
 				D9518BF12744431C001C1AE4 /* HomeVC.swift */,
+				D9518BF327444EE5001C1AE4 /* FoodImageCollectionViewCell.swift */,
+				D9518BF527445D8A001C1AE4 /* AddVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -251,8 +257,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9518BF627445D8A001C1AE4 /* AddVC.swift in Sources */,
 				B1A3A88C273AF8C0008E1B9E /* AppDelegate.swift in Sources */,
 				B19B1A8A2743162D000CA953 /* RegisterVC.swift in Sources */,
+				D9518BF427444EE5001C1AE4 /* FoodImageCollectionViewCell.swift in Sources */,
 				B1A3A88E273AF8C0008E1B9E /* SceneDelegate.swift in Sources */,
 				D9518BF22744431C001C1AE4 /* HomeVC.swift in Sources */,
 				B19B1A8827431619000CA953 /* LoginVC.swift in Sources */,
