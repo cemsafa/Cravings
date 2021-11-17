@@ -95,6 +95,9 @@
                                                     <fontDescription key="titleFontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
                                                     <color key="baseForegroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="signupBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NZ7-Zs-gtj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -121,6 +124,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ez3-Zt-zlC"/>
+                    <connections>
+                        <outlet property="emailField" destination="dmJ-1S-9B1" id="CVo-DL-PW1"/>
+                        <outlet property="loginLbl" destination="HhU-R7-rYf" id="LPh-b2-KwL"/>
+                        <outlet property="nameField" destination="tG5-Vb-c7a" id="Ggl-t1-7dP"/>
+                        <outlet property="passwordField" destination="n03-f1-2rb" id="Gdt-GS-RGe"/>
+                        <outlet property="usernameField" destination="a9G-gC-zir" id="fxp-Ml-JXl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -236,6 +246,9 @@
                                                     <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                                     <color key="baseForegroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="facebookLoginBtnTapped:" destination="18i-Wb-EPa" eventType="touchUpInside" id="0rt-0v-ghb"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR1-ow-K3q">
                                                 <rect key="frame" x="0.0" y="38" width="318" height="35"/>
@@ -251,6 +264,9 @@
                                                     <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="17"/>
                                                     <color key="baseForegroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="googleLoginBtnTapped:" destination="18i-Wb-EPa" eventType="touchUpInside" id="wsC-Wp-Sck"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -274,7 +290,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="W3K-VM-mWY" id="Wof-9d-p7w"/>
-                        <outlet property="facebookLoginBtn" destination="p5n-3o-yNC" id="42z-bd-SWC"/>
+                        <outlet property="facebookLoginBtn" destination="p5n-3o-yNC" id="pt3-1d-dvv"/>
                         <outlet property="forgotLbl" destination="0UX-dZ-QhR" id="vcK-Hu-vTe"/>
                         <outlet property="googleLoginBtn" destination="aR1-ow-K3q" id="gys-Ah-pjM"/>
                         <outlet property="loginBtn" destination="kTF-oQ-Dxn" id="70P-mY-Ce4"/>

@@ -21,9 +21,18 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        facebookLoginBtn = FBLoginButton()
-        facebookLoginBtn.permissions = ["email,public_profile"]
+        
+        if let token = AccessToken.current, !token.isExpired {
+            let token = token.tokenString
+            
+            let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "email, name"], tokenString: token, version: nil, httpMethod: .get)
+            request.start { connection, result, error in
+                print("\(result)")
+            }
+        } else {
+            facebookLoginBtn = FBLoginButton()
+            facebookLoginBtn.delegate = self
+        }
         
         let forgotTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(forgotLblTapped))
         forgotLbl.isUserInteractionEnabled = true
@@ -56,7 +65,7 @@ class LoginVC: UIViewController {
         present(registerVC, animated: true, completion: nil)
     }
 
-    @IBAction func loginBtnTapped(_ sender: Any) {
+    @IBAction func loginBtnTapped(_ sender: UIButton) {
         emailField.resignFirstResponder()
         passwordField.resignFirstResponder()
         guard let email = emailField.text, let password = passwordField.text else { return }
@@ -71,5 +80,37 @@ class LoginVC: UIViewController {
                 }
             }
         }
+    }
+    
+    @IBAction func facebookLoginBtnTapped(_ sender: Any) {
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["email" , "public_profile"], from: self) { result, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let result = result, result.isCancelled {
+                print("Cancelled")
+            } else {
+                print("Log In Complete")
+            }
+        }
+    }
+    
+    @IBAction func googleLoginBtnTapped(_ sender: Any) {
+    }
+}
+
+// MARK: - LoginButtonDelegate
+extension LoginVC: LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        let token = result?.token?.tokenString
+        
+        let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "email, name"], tokenString: token, version: nil, httpMethod: .get)
+        request.start { connection, result, error in
+            print("\(result)")
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        
     }
 }
