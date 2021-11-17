@@ -10,8 +10,6 @@ import UIKit
 class AddVC: UIViewController {
     
     @IBOutlet weak var addImageView: UIImageView!
-    @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var imagesButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +18,7 @@ class AddVC: UIViewController {
             
         let picker = UIImagePickerController()
         picker.allowsEditing = true
-        //picker.sourceType = .camera //will work on real ios device
+        //picker.sourceType = .camera   //camera will work on real ios device
         picker.delegate = self
         present(picker, animated: true)
         
