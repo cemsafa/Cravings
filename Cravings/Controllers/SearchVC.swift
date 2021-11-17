@@ -43,6 +43,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UITableViewDelegate, 
         data.append("mojito")
         data.append("cheescake")
         data.append("pizza")
+        data.append("coffee")
         
         
     }
