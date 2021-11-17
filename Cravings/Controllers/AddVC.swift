@@ -8,22 +8,45 @@
 import UIKit
 
 class AddVC: UIViewController {
-
+    
+    @IBOutlet weak var addImageView: UIImageView!
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var imagesButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        addImageView.backgroundColor = .secondarySystemBackground
+            
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        //picker.sourceType = .camera //will work on real ios device
+        picker.delegate = self
+        present(picker, animated: true)
+        
+    
     }
     
+   
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension AddVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+     
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
+            return
+        }
+        addImageView.image = image
+        
+    }
+    
+    
+    
 }

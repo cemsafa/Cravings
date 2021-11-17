@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eie-Np-e3X">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -289,17 +290,31 @@
             </objects>
             <point key="canvasLocation" x="386" y="1446"/>
         </scene>
-        <!--View Controller-->
+        <!--AddVC-->
         <scene sceneID="O2w-t8-Pls">
             <objects>
-                <viewController id="OD4-Oc-LnM" sceneMemberID="viewController">
+                <viewController id="OD4-Oc-LnM" customClass="AddVC" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ysT-4y-qto">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Mb-GB-Yov">
+                                <rect key="frame" x="20" y="108" width="374" height="685"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uOy-d9-PQd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uOy-d9-PQd" firstAttribute="trailing" secondItem="6Mb-GB-Yov" secondAttribute="trailing" constant="20" id="5g0-Ww-spJ"/>
+                            <constraint firstItem="6Mb-GB-Yov" firstAttribute="top" secondItem="uOy-d9-PQd" secondAttribute="top" constant="20" id="FNh-hO-WYq"/>
+                            <constraint firstItem="6Mb-GB-Yov" firstAttribute="leading" secondItem="uOy-d9-PQd" secondAttribute="leading" constant="20" id="Ln6-oV-avl"/>
+                            <constraint firstItem="uOy-d9-PQd" firstAttribute="bottom" secondItem="6Mb-GB-Yov" secondAttribute="bottom" constant="20" id="NbY-uT-gUc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jTd-Hh-ljZ"/>
+                    <connections>
+                        <outlet property="addImageView" destination="6Mb-GB-Yov" id="AOB-I4-g9b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcT-gS-iba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,33 +355,26 @@
         <!--HomeVC-->
         <scene sceneID="ALg-wM-RfV">
             <objects>
-                <viewController id="2uO-QI-u9L" customClass="HomeVC" customModule="Cravings" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="2uO-QI-u9L" customClass="HomeVC" customModule="Cravings" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ldL-qZ-jcW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cravings2" translatesAutoresizingMaskIntoConstraints="NO" id="yaN-OY-IbA">
-                                <rect key="frame" x="52" y="90" width="165" height="77"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="oA4-in-9bd"/>
-                                    <constraint firstAttribute="height" constant="77" id="tDq-lC-2HV"/>
-                                </constraints>
-                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jUb-ug-aKa" customClass="FoodImageCollectionView">
-                                <rect key="frame" x="0.0" y="215" width="414" height="603"/>
+                                <rect key="frame" x="0.0" y="207" width="414" height="611"/>
                                 <color key="backgroundColor" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="LcB-a8-gUf">
-                                    <size key="itemSize" width="135" height="135"/>
+                                    <size key="itemSize" width="125" height="125"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="1" minY="0.0" maxX="1" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodImageCell" id="oWv-dr-c8s" customClass="FoodImageCollectionViewCell" customModule="Cravings" customModuleProvider="target">
-                                        <rect key="frame" x="1" y="0.0" width="135" height="135"/>
+                                        <rect key="frame" x="0.0" y="1" width="125" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NUq-Wv-hDp">
-                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dessert" translatesAutoresizingMaskIntoConstraints="NO" id="OGg-27-glc">
@@ -381,30 +389,38 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Superstars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSv-xc-wsf">
-                                <rect key="frame" x="137" y="167" width="141" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="TNp-li-QGX"/>
-                                    <constraint firstAttribute="width" constant="141" id="eC8-3l-GY8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="KfU-yb-2G7">
+                                <rect key="frame" x="98" y="88" width="219" height="103"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cravings2" translatesAutoresizingMaskIntoConstraints="NO" id="yaN-OY-IbA">
+                                        <rect key="frame" x="0.0" y="0.0" width="219" height="77"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="77" id="fBS-I3-esv"/>
+                                            <constraint firstAttribute="width" constant="219" id="j9f-Qv-Jiu"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Superstars" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSv-xc-wsf">
+                                        <rect key="frame" x="39" y="79" width="141" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="xQS-GQ-blU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ar4-vT-Djn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="nSv-xc-wsf" firstAttribute="top" secondItem="yaN-OY-IbA" secondAttribute="bottom" id="Mxq-Ru-nJk"/>
-                            <constraint firstItem="yaN-OY-IbA" firstAttribute="leading" secondItem="Ar4-vT-Djn" secondAttribute="leading" constant="52" id="Ue9-eW-Gwq"/>
-                            <constraint firstItem="jUb-ug-aKa" firstAttribute="top" secondItem="nSv-xc-wsf" secondAttribute="bottom" constant="26" id="dTu-Uf-AnH"/>
-                            <constraint firstItem="yaN-OY-IbA" firstAttribute="top" secondItem="Ar4-vT-Djn" secondAttribute="top" constant="2" id="epS-EW-ROL"/>
+                            <constraint firstItem="Ar4-vT-Djn" firstAttribute="trailing" secondItem="KfU-yb-2G7" secondAttribute="trailing" constant="97" id="MHQ-5G-RUP"/>
+                            <constraint firstItem="jUb-ug-aKa" firstAttribute="top" secondItem="KfU-yb-2G7" secondAttribute="bottom" constant="16" id="P4p-sG-4sN"/>
+                            <constraint firstItem="KfU-yb-2G7" firstAttribute="leading" secondItem="Ar4-vT-Djn" secondAttribute="leading" constant="98" id="V5h-Ey-eiK"/>
+                            <constraint firstItem="KfU-yb-2G7" firstAttribute="top" secondItem="Ar4-vT-Djn" secondAttribute="top" id="naL-cO-GUX"/>
                             <constraint firstItem="jUb-ug-aKa" firstAttribute="bottom" secondItem="Ar4-vT-Djn" secondAttribute="bottom" constant="5" id="s9f-kx-XKw"/>
                             <constraint firstItem="jUb-ug-aKa" firstAttribute="leading" secondItem="Ar4-vT-Djn" secondAttribute="leading" id="v1H-hb-Itu"/>
                             <constraint firstItem="jUb-ug-aKa" firstAttribute="trailing" secondItem="Ar4-vT-Djn" secondAttribute="trailing" id="vBr-lL-emE"/>
-                            <constraint firstItem="nSv-xc-wsf" firstAttribute="leading" secondItem="Ar4-vT-Djn" secondAttribute="leading" constant="137" id="wjz-SD-Qbw"/>
-                            <constraint firstItem="Ar4-vT-Djn" firstAttribute="trailing" secondItem="nSv-xc-wsf" secondAttribute="trailing" constant="136" id="xoC-A0-j78"/>
-                            <constraint firstItem="Ar4-vT-Djn" firstAttribute="trailing" secondItem="yaN-OY-IbA" secondAttribute="trailing" constant="197" id="z95-G5-ON1"/>
                             <constraint firstItem="Ar4-vT-Djn" firstAttribute="bottom" secondItem="jUb-ug-aKa" secondAttribute="bottom" id="zgk-cv-dzh"/>
                         </constraints>
                     </view>
@@ -415,12 +431,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nck-VF-CMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-359" y="1446"/>
+            <point key="canvasLocation" x="-359.4202898550725" y="1445.7589285714284"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NMX-ik-rZv">
             <objects>
-                <tabBarController id="Eie-Np-e3X" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Eie-Np-e3X" customClass="TabBarController" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JBv-4b-M2N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -480,7 +496,7 @@
         <scene sceneID="KuQ-e9-iYN">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="50x-IK-Veq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="plus" catalog="system" id="sLD-C7-nM5"/>
+                    <tabBarItem key="tabBarItem" title="" image="plus" catalog="system" id="sLD-C7-nM5" customClass="AddTabBar"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gve-wK-fsb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

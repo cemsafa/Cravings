@@ -14,11 +14,12 @@ class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
     @IBOutlet weak var foodImageCollectionView: UICollectionView!
     
     //statically added images for UI testing only
-    let foods = ["dessert", "ramen" ]
+    let foods = ["dessert", "ramen", "pancake" ]
     
     let foodImages: [UIImage] = [
         UIImage(named: "dessert")!,
-        UIImage(named: "ramen")!]
+        UIImage(named: "ramen")!,
+        UIImage(named: "pancake")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,16 @@ class HomeVC: UIViewController, UICollectionViewDataSource, UICollectionViewDele
         
         let cell = foodImageCollectionView.dequeueReusableCell(withReuseIdentifier: "foodImageCell", for: indexPath) as! FoodImageCollectionViewCell
         cell.foodImageView.image = foodImages[indexPath.item]
+        
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 5, right: 2)
+//        layout.minimumInteritemSpacing = 2
+//        layout.minimumLineSpacing = 5
+//        layout.scrollDirection = .vertical
+//        collectionView.collectionViewLayout = layout
+        
+            
+        
                 
                 return cell
         
