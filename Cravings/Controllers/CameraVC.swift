@@ -1,8 +1,8 @@
 //
-//  AddVC.swift
+//  CameraVC.swift
 //  Cravings
 //
-//  Created by Ma. Kristina Ginga on 2021-11-16.
+//  Created by Cem Safa on 2021-11-15.
 //
 
 import UIKit
@@ -44,7 +44,4 @@ extension CameraVC: UIImagePickerControllerDelegate, UINavigationControllerDeleg
         addImageView.image = image
         
     }
-    
-    
-    
 }
