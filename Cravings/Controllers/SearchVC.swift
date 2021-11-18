@@ -7,23 +7,67 @@
 
 import UIKit
 
-class SearchVC: UIViewController {
+class SearchVC: UIViewController, UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var searchTableView: UITableView!
+    
+    let searchController = UISearchController()
+    
+    var data = [String]()
+    var filteredData = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        setUpData()
+        
+        searchTableView.delegate = self
+        searchTableView.dataSource = self
+        
+        title = "Search"
+        searchController.searchResultsUpdater = self
+        navigationItem.searchController = searchController
+       
+     
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // added for UI testing purpose
+    func setUpData () {
+        data.append("pasta")
+        data.append("ice cream")
+        data.append("cupcake")
+        data.append("milkshake")
+        data.append("mojito")
+        data.append("cheescake")
+        data.append("pizza")
+        data.append("coffee")
+        
+        
     }
-    */
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        print(text)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchTableCell", for: indexPath)
+        cell.textLabel?.text = data[indexPath.row]
+                
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        return
+    }
 
 }

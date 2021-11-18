@@ -24,6 +24,11 @@
 		B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A894273AF8C4008E1B9E /* Assets.xcassets */; };
 		B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */; };
 		D78FC6B5325FF4A28F75E887 /* Pods_Cravings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */; };
+		D91FD6552744C9C6008CAF01 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91FD6542744C9C6008CAF01 /* SearchVC.swift */; };
+		D9518BED27442DC0001C1AE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9518BE927442337001C1AE4 /* GoogleService-Info.plist */; };
+		D9518BF22744431C001C1AE4 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9518BF12744431C001C1AE4 /* HomeVC.swift */; };
+		D9518BF427444EE5001C1AE4 /* FoodImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9518BF327444EE5001C1AE4 /* FoodImageCollectionViewCell.swift */; };
+		D9518BF627445D8A001C1AE4 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9518BF527445D8A001C1AE4 /* AddVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9518BED27442DC0001C1AE4 /* GoogleService-Info.plist in Resources */,
 				B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */,
 				B142DFC72745F14000C040DE /* GoogleService-Info.plist in Resources */,
 				B1A3A895273AF8C4008E1B9E /* Assets.xcassets in Resources */,
@@ -273,6 +279,8 @@
 				B132C2C827432F3300BD7867 /* ChatVC.swift in Sources */,
 				B1A3A88C273AF8C0008E1B9E /* AppDelegate.swift in Sources */,
 				B19B1A8A2743162D000CA953 /* RegisterVC.swift in Sources */,
+				D91FD6552744C9C6008CAF01 /* SearchVC.swift in Sources */,
+				D9518BF427444EE5001C1AE4 /* FoodImageCollectionViewCell.swift in Sources */,
 				B1A3A88E273AF8C0008E1B9E /* SceneDelegate.swift in Sources */,
 				B132C2C627432F1100BD7867 /* CameraVC.swift in Sources */,
 				B132C2C227432EDE00BD7867 /* HomeVC.swift in Sources */,
@@ -438,6 +446,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,6 +476,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

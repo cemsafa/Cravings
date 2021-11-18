@@ -31,5 +31,4 @@ class HomeVC: UIViewController {
             present(loginVC, animated: false)
         }
     }
-
 }
