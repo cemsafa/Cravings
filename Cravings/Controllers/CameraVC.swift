@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddVC: UIViewController {
+class CameraVC: UIViewController {
     
     @IBOutlet weak var addImageView: UIImageView!
     
@@ -28,7 +28,7 @@ class AddVC: UIViewController {
    
 }
 
-extension AddVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CameraVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
