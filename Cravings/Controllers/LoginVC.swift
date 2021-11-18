@@ -98,7 +98,6 @@ class LoginVC: UIViewController {
     
     @IBAction func googleLoginBtnTapped(_ sender: Any) {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        
         let config = GIDConfiguration(clientID: clientID)
         
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
@@ -108,7 +107,6 @@ class LoginVC: UIViewController {
             }
             
             guard let authentication = user?.authentication, let idToken = authentication.idToken else { return }
-            
             let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authentication.accessToken)
             
             Auth.auth().signIn(with: credential) { result, error in
