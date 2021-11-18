@@ -5,36 +5,33 @@
 //  Created by Cem Safa on 2021-11-15.
 //
 
-import FirebaseDatabase
+import Firebase
 
 public class DatabaseManager {
     
     static let shared = DatabaseManager()
     
-    private let database = Database.database().reference()
+    private let database = Firestore.firestore()
     
-    // MARK: - Public
+    private var ref: DocumentReference? = nil
     
-    /// Check if username and email is available
-    /// - Parameters
-    ///     - email: String representing email
-    ///     - username: String representing username
-    ///     - completion: Async callback for result if database entry succeeded
     public func canCreateNewUser(with email: String, username: String, completion: (Bool) -> Void) {
         completion(true)
     }
     
-    /// Insert new user data to database
-    /// - Parameters
-    ///     - email: String representing email
-    ///     - username: String representing username
-    public func insertNewUser(with email: String, username: String, completion: @escaping (Bool) -> Void) {
-        database.child(email.safeDatabaseKey()).setValue(["username": username]) { error, _ in
-            if error == nil {
-                completion(true)
+    public func insertNewUser(with email: String, username: String, fullname: String, completion: @escaping (Bool) -> Void) {
+        ref = database.collection("users").addDocument(data: [
+            "email": email.safeDatabaseKey(),
+            "username": username,
+            "fullname": fullname
+        ]) { error in
+            if let error = error {
+                print("Error adding document: \(error.localizedDescription)")
+                completion(false)
                 return
             } else {
-                completion(false)
+                print("Document added with ID: \(self.ref!.documentID)")
+                completion(true)
                 return
             }
         }
