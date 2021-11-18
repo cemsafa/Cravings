@@ -129,7 +129,7 @@ iOSInjectionProject/
 
 ### Secrets ###
 GoogleService-Info.plist
-
+Info.plist
 
 ## Gcc Patch
 /*.gcno

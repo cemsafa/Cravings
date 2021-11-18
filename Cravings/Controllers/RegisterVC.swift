@@ -9,21 +9,24 @@ import UIKit
 
 class RegisterVC: UIViewController {
 
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let loginTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(loginLblTapped))
+        loginLbl.isUserInteractionEnabled = true
+        loginLbl.addGestureRecognizer(loginTapRecognizer)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginLblTapped(sender: UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
 
+    @IBAction func signupBtnTapped(_ sender: UIButton) {
+    }
 }
