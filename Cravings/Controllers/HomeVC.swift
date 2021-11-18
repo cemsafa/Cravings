@@ -14,6 +14,9 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        AuthManager.shared.logOut { ok in
+            
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

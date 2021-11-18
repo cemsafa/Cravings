@@ -11,9 +11,7 @@ public class AuthManager {
     
     static let shared = AuthManager()
     
-    // MARK: - Public
-    
-    public func regsiterNewUser(username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
+    public func regsiterNewUser(fullname: String, username: String, email: String, password: String, completion: @escaping (Bool) -> Void) {
         DatabaseManager.shared.canCreateNewUser(with: email, username: username) { canCreate in
             if canCreate {
                 Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
@@ -21,7 +19,7 @@ public class AuthManager {
                         completion(false)
                         return
                     }
-                    DatabaseManager.shared.insertNewUser(with: email, username: username) { inserted in
+                    DatabaseManager.shared.insertNewUser(with: email, username: username, fullname: fullname) { inserted in
                         if inserted {
                             completion(true)
                             return
@@ -55,7 +53,6 @@ public class AuthManager {
         }
     }
     
-    /// Attempt to log out firebase user
     public func logOut(completion: (Bool) -> Void) {
         do {
             try Auth.auth().signOut()

@@ -369,7 +369,7 @@
         <!--HomeVC-->
         <scene sceneID="ALg-wM-RfV">
             <objects>
-                <viewController id="2uO-QI-u9L" customClass="HomeVC" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homeVC" id="2uO-QI-u9L" customClass="HomeVC" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ldL-qZ-jcW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -385,7 +385,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="NMX-ik-rZv">
             <objects>
-                <tabBarController id="Eie-Np-e3X" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="Eie-Np-e3X" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JBv-4b-M2N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
