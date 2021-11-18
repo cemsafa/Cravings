@@ -24,9 +24,6 @@ class RegisterVC: UIViewController {
     }
     
     @IBAction func loginLblTapped(sender: UITapGestureRecognizer) {
-//        guard let registerVC = storyboard?.instantiateViewController(withIdentifier: "registerVC") else { return }
-//        registerVC.modalPresentationStyle = .fullScreen
-//        present(registerVC, animated: true, completion: nil)
         self.dismiss(animated: true, completion: nil)
     }
 
