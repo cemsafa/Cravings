@@ -410,6 +410,7 @@
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="loginBtnTapped:" destination="18i-Wb-EPa" eventType="touchUpInside" id="nbT-66-6Nt"/>
+                                                    <action selector="saveButtonTapped:" destination="VjH-PY-W1D" eventType="touchUpInside" id="zsA-4f-uIc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -425,7 +426,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aboutMeField" destination="Nl5-vk-bNt" id="6aY-fa-Y0P"/>
+                        <outlet property="addPhotoLbl" destination="OaS-aW-uT9" id="Ssa-AC-Lya"/>
                         <outlet property="editProfileImage" destination="9KC-EB-LKS" id="Uns-QH-vh1"/>
+                        <outlet property="nameField" destination="s8q-Ym-WTO" id="b32-9F-N2o"/>
+                        <outlet property="titleField" destination="veH-Wc-ijz" id="U2z-r1-tnx"/>
+                        <outlet property="usernameField" destination="cqm-Z3-nn1" id="FC0-pd-rfY"/>
+                        <outlet property="webYTField" destination="bf6-Va-3uB" id="snK-WV-Thx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEu-js-KcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
