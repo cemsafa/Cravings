@@ -30,6 +30,9 @@ class EditProfileVC: UIViewController {
     @IBAction func saveButtonTapped(_ sender: UIButton) {
     }
     
+    @IBAction func backButton(_ sender: UIButton) {
+    }
+    
     @IBAction func addPhotoLblTapped (sender: UITapGestureRecognizer) {
         
     }
