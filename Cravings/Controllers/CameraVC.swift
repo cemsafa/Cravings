@@ -1,13 +1,13 @@
 //
-//  AddVC.swift
+//  CameraVC.swift
 //  Cravings
 //
-//  Created by Ma. Kristina Ginga on 2021-11-16.
+//  Created by Cem Safa on 2021-11-15.
 //
 
 import UIKit
 
-class AddVC: UIViewController {
+class CameraVC: UIViewController {
     
     @IBOutlet weak var addImageView: UIImageView!
     
@@ -28,7 +28,7 @@ class AddVC: UIViewController {
    
 }
 
-extension AddVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CameraVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -44,7 +44,4 @@ extension AddVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate
         addImageView.image = image
         
     }
-    
-    
-    
 }

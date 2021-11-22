@@ -2,7 +2,7 @@
 //  SearchVC.swift
 //  Cravings
 //
-//  Created by Ma. Kristina Ginga on 2021-11-17.
+//  Created by Cem Safa on 2021-11-15.
 //
 
 import UIKit
@@ -69,8 +69,5 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         return
     }
-    
-    
-
 
 }
