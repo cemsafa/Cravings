@@ -390,17 +390,52 @@
             </objects>
             <point key="canvasLocation" x="1881" y="1446"/>
         </scene>
-        <!--ProfileVC-->
+        <!--Profile View Controller-->
         <scene sceneID="49O-uY-boY">
             <objects>
-                <viewController id="URc-LV-o7D" customClass="ProfileVC" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="URc-LV-o7D" customClass="ProfileViewController" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9O9-gn-maU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="m8q-AI-m7C">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0vs-uz-vbL">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VkC-Wq-I59">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8xt-5u-rjN">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="URc-LV-o7D" id="nPl-JX-BX9"/>
+                                    <outlet property="delegate" destination="URc-LV-o7D" id="a5V-Wm-pu0"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="O1Z-D9-Ipu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m8q-AI-m7C" firstAttribute="leading" secondItem="O1Z-D9-Ipu" secondAttribute="leading" id="Kqu-XI-hb8"/>
+                            <constraint firstItem="O1Z-D9-Ipu" firstAttribute="trailing" secondItem="m8q-AI-m7C" secondAttribute="trailing" id="WxW-5Q-qIh"/>
+                            <constraint firstItem="O1Z-D9-Ipu" firstAttribute="bottom" secondItem="m8q-AI-m7C" secondAttribute="bottom" id="oHa-ND-OpZ"/>
+                            <constraint firstItem="m8q-AI-m7C" firstAttribute="top" secondItem="O1Z-D9-Ipu" secondAttribute="top" id="oKz-WB-giZ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OZL-MH-sfg"/>
+                    <connections>
+                        <outlet property="collectionView" destination="m8q-AI-m7C" id="afE-f0-YAI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0t1-6o-CaL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

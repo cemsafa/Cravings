@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCollectionViewCell" id="gTV-IL-0wX" customClass="ProfileCollectionViewCell" customModule="Cravings" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="467" height="314"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="467" height="314"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qBW-FF-1N3">
+                        <rect key="frame" x="24" y="24" width="144" height="144"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="144" id="TeA-eD-SmO"/>
+                            <constraint firstAttribute="width" constant="144" id="h69-gC-CJH"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="752" text="Christian Dior" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuW-2i-Tll">
+                        <rect key="frame" x="184" y="36" width="267" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500 followers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpv-UQ-wiA">
+                        <rect key="frame" x="208" y="108" width="243" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Chef, Blogger" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyp-nZ-1X1">
+                        <rect key="frame" x="184" y="71.5" width="267" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-vw-5fi">
+                        <rect key="frame" x="16" y="221" width="435" height="77"/>
+                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget duis a elit pellentesque consectetur enim. Sed mollis quam ullamcorper facilisi et ultrices purus. Faucibus dignissim sodales at a et platea. Eget non ut diam, at neque tellus arcu.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nu3-hr-O1q">
+                        <rect key="frame" x="184" y="108" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="DKI-D7-d8e"/>
+                            <constraint firstAttribute="height" constant="20" id="fRe-eb-b3b"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0r0-ff-M9f">
+                        <rect key="frame" x="49.5" y="174" width="93.5" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="cxh-sa-JdH"/>
+                        </constraints>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="edit profile">
+                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="editProfileButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="wao-2k-Nre"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CP-E2-7um">
+                        <rect key="frame" x="274" y="174" width="177" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="H4c-Kf-pdS"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" image="message" catalog="system" title="Say Hi to Christian...">
+                            <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="chatButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="OEj-tA-KUM"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="0r0-ff-M9f" firstAttribute="top" secondItem="qBW-FF-1N3" secondAttribute="bottom" constant="6" id="0Ym-AI-0rE"/>
+                <constraint firstItem="nu3-hr-O1q" firstAttribute="leading" secondItem="qBW-FF-1N3" secondAttribute="trailing" constant="16" id="5it-F1-qQV"/>
+                <constraint firstItem="zuW-2i-Tll" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="36" id="78G-7m-5CT"/>
+                <constraint firstItem="8Kf-vw-5fi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="Ela-uE-4xE"/>
+                <constraint firstItem="Vyp-nZ-1X1" firstAttribute="leading" secondItem="qBW-FF-1N3" secondAttribute="trailing" constant="16" id="Hm9-aE-qpS"/>
+                <constraint firstAttribute="bottom" secondItem="8Kf-vw-5fi" secondAttribute="bottom" constant="16" id="J34-yK-ilc"/>
+                <constraint firstItem="8Kf-vw-5fi" firstAttribute="top" secondItem="0r0-ff-M9f" secondAttribute="bottom" constant="12" id="JzY-Z2-lQL"/>
+                <constraint firstAttribute="trailing" secondItem="8Kf-vw-5fi" secondAttribute="trailing" constant="16" id="KxA-H7-V41"/>
+                <constraint firstAttribute="trailing" secondItem="Wpv-UQ-wiA" secondAttribute="trailing" constant="16" id="PTu-y7-CP0"/>
+                <constraint firstItem="Wpv-UQ-wiA" firstAttribute="top" secondItem="nu3-hr-O1q" secondAttribute="top" id="SXH-3U-thM"/>
+                <constraint firstAttribute="trailing" secondItem="2CP-E2-7um" secondAttribute="trailing" constant="16" id="WdR-u2-Noz"/>
+                <constraint firstItem="nu3-hr-O1q" firstAttribute="top" secondItem="Vyp-nZ-1X1" secondAttribute="bottom" constant="16" id="XbF-ar-t22"/>
+                <constraint firstAttribute="trailing" secondItem="Vyp-nZ-1X1" secondAttribute="trailing" constant="16" id="aqa-Z1-sd9"/>
+                <constraint firstItem="qBW-FF-1N3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="atF-Vy-xrw"/>
+                <constraint firstItem="Vyp-nZ-1X1" firstAttribute="top" secondItem="zuW-2i-Tll" secondAttribute="bottom" constant="16" id="gf0-xl-a2V"/>
+                <constraint firstItem="zuW-2i-Tll" firstAttribute="leading" secondItem="qBW-FF-1N3" secondAttribute="trailing" constant="16" id="pbK-Pq-q8A"/>
+                <constraint firstItem="Wpv-UQ-wiA" firstAttribute="leading" secondItem="nu3-hr-O1q" secondAttribute="trailing" constant="4" id="roH-Ha-Bgd"/>
+                <constraint firstItem="2CP-E2-7um" firstAttribute="centerY" secondItem="0r0-ff-M9f" secondAttribute="centerY" id="tWZ-2L-VZx"/>
+                <constraint firstItem="0r0-ff-M9f" firstAttribute="centerX" secondItem="qBW-FF-1N3" secondAttribute="centerX" id="tkw-w3-Rek"/>
+                <constraint firstItem="qBW-FF-1N3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="24" id="trP-Z7-DYq"/>
+                <constraint firstAttribute="trailing" secondItem="zuW-2i-Tll" secondAttribute="trailing" constant="16" id="vXQ-XM-ZvN"/>
+            </constraints>
+            <size key="customSize" width="467" height="314"/>
+            <connections>
+                <outlet property="bioLabel" destination="8Kf-vw-5fi" id="98j-Tt-bfF"/>
+                <outlet property="chatButton" destination="2CP-E2-7um" id="rZf-T8-VGu"/>
+                <outlet property="editProfileButton" destination="0r0-ff-M9f" id="MeF-4E-wMz"/>
+                <outlet property="followersImageView" destination="nu3-hr-O1q" id="WpS-Bf-H7K"/>
+                <outlet property="followersLabel" destination="Vyp-nZ-1X1" id="2Md-3o-HRk"/>
+                <outlet property="nameLabel" destination="zuW-2i-Tll" id="VJx-Ws-KY0"/>
+                <outlet property="professionLabel" destination="Wpv-UQ-wiA" id="hZJ-8p-hDC"/>
+                <outlet property="profileImageView" destination="qBW-FF-1N3" id="QhF-Am-cUh"/>
+            </connections>
+            <point key="canvasLocation" x="181.8840579710145" y="127.23214285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="message" catalog="system" width="128" height="113"/>
+    </resources>
+</document>
