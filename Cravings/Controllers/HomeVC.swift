@@ -20,7 +20,7 @@ class HomeVC: UIViewController {
 
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
-        layout.sectionInset = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         layout.itemSize = CGSize(width: width / 2, height: width / 2)
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 5
@@ -29,6 +29,8 @@ class HomeVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //handleNotAuthenticated()
       
     }
     
@@ -45,7 +47,7 @@ extension HomeVC : UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

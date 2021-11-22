@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileVC: UIViewController {
     
@@ -26,13 +27,15 @@ class ProfileVC: UIViewController {
         
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
             let width = UIScreen.main.bounds.width
-            layout.sectionInset = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+            layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
             layout.itemSize = CGSize(width: width / 2, height: width / 2)
-            layout.minimumInteritemSpacing = 5
-            layout.minimumLineSpacing = 5
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
             collectionView?.collectionViewLayout = layout
     }
     
+    @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {
+    }
     
     @IBAction func editProfileBtnPressed(_ sender: UIButton) {
     }
@@ -52,7 +55,7 @@ extension ProfileVC : UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        return UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
