@@ -532,6 +532,7 @@
                                     <color key="baseForegroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="backBtnPressed:" destination="poX-0e-2w2" eventType="touchUpInside" id="Vpq-Fw-FSL"/>
                                     <action selector="backButton:" destination="VjH-PY-W1D" eventType="touchUpInside" id="Ei2-e5-zZb"/>
                                 </connections>
                             </button>
@@ -568,6 +569,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart2"/>
+                                <connections>
+                                    <action selector="likeBtnPressed:" destination="poX-0e-2w2" eventType="touchUpInside" id="gug-0v-mDL"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31.9K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vG5-oi-lC7">
                                 <rect key="frame" x="313" y="554" width="41" height="19"/>
@@ -585,10 +589,28 @@
                                     <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="20"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBm-hf-pHB">
+                                <rect key="frame" x="20" y="670.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9P2-JA-acr"/>
+                                    <constraint firstAttribute="width" constant="30" id="Zda-kR-eUO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="comment"/>
+                                <connections>
+                                    <action selector="commentBtnPressed:" destination="poX-0e-2w2" eventType="touchUpInside" id="xKh-ie-DGW"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="av8-xf-Ors">
+                                <rect key="frame" x="17" y="664" width="380" height="2.5"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="progressTintColor" systemColor="systemGray5Color"/>
+                            </progressView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KKz-Ch-cAg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZBm-hf-pHB" firstAttribute="top" secondItem="av8-xf-Ors" secondAttribute="bottom" constant="5" id="6ty-34-9Dn"/>
                             <constraint firstItem="N8A-tO-GkY" firstAttribute="top" secondItem="33r-xF-cMv" secondAttribute="bottom" constant="8" symbolic="YES" id="BEs-Cn-Xn0"/>
                             <constraint firstItem="8vP-su-MKJ" firstAttribute="top" secondItem="N8A-tO-GkY" secondAttribute="bottom" constant="13" id="DzQ-f1-H5Z"/>
                             <constraint firstItem="33r-xF-cMv" firstAttribute="top" secondItem="KKz-Ch-cAg" secondAttribute="top" constant="30" id="NEH-mn-B0e"/>
@@ -597,16 +619,28 @@
                             <constraint firstItem="8vP-su-MKJ" firstAttribute="leading" secondItem="vG5-oi-lC7" secondAttribute="trailing" constant="10" id="WRl-f2-Zhx"/>
                             <constraint firstItem="33r-xF-cMv" firstAttribute="leading" secondItem="KKz-Ch-cAg" secondAttribute="leading" constant="24" id="bvN-QH-ej1"/>
                             <constraint firstItem="rXm-kc-Jht" firstAttribute="top" secondItem="N8A-tO-GkY" secondAttribute="bottom" constant="5" id="coM-Tg-kUx"/>
+                            <constraint firstItem="av8-xf-Ors" firstAttribute="leading" secondItem="KKz-Ch-cAg" secondAttribute="leading" constant="17" id="dlz-Ge-BAr"/>
                             <constraint firstItem="KKz-Ch-cAg" firstAttribute="trailing" secondItem="vZB-bF-z8u" secondAttribute="trailing" constant="24" id="eCy-EF-SIq"/>
+                            <constraint firstItem="av8-xf-Ors" firstAttribute="top" secondItem="vZB-bF-z8u" secondAttribute="bottom" constant="17" id="kdm-qy-xRj"/>
+                            <constraint firstItem="KKz-Ch-cAg" firstAttribute="trailing" secondItem="av8-xf-Ors" secondAttribute="trailing" constant="17" id="kz0-89-XLi"/>
                             <constraint firstItem="KKz-Ch-cAg" firstAttribute="trailing" secondItem="8vP-su-MKJ" secondAttribute="trailing" constant="20" id="o3Q-gY-zTf"/>
                             <constraint firstItem="KKz-Ch-cAg" firstAttribute="trailing" secondItem="N8A-tO-GkY" secondAttribute="trailing" id="rlh-ey-7Gn"/>
                             <constraint firstItem="b0H-iZ-8Tt" firstAttribute="leading" secondItem="rXm-kc-Jht" secondAttribute="trailing" constant="10" id="ros-mB-FOv"/>
                             <constraint firstItem="b0H-iZ-8Tt" firstAttribute="top" secondItem="N8A-tO-GkY" secondAttribute="bottom" constant="13" id="shY-6U-uze"/>
+                            <constraint firstItem="ZBm-hf-pHB" firstAttribute="leading" secondItem="KKz-Ch-cAg" secondAttribute="leading" constant="20" id="wgn-m1-5c9"/>
                             <constraint firstItem="N8A-tO-GkY" firstAttribute="leading" secondItem="KKz-Ch-cAg" secondAttribute="leading" id="xBe-BO-EYW"/>
                             <constraint firstItem="vZB-bF-z8u" firstAttribute="leading" secondItem="KKz-Ch-cAg" secondAttribute="leading" constant="24" id="xgJ-6t-0f5"/>
                             <constraint firstItem="rXm-kc-Jht" firstAttribute="leading" secondItem="KKz-Ch-cAg" secondAttribute="leading" constant="20" id="zyD-eY-smP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="captionLbl" destination="vZB-bF-z8u" id="Leb-Ru-KPI"/>
+                        <outlet property="detailImage" destination="N8A-tO-GkY" id="AT8-Vl-4pi"/>
+                        <outlet property="fullNameLbl" destination="Jae-iT-ClG" id="662-sz-l8e"/>
+                        <outlet property="likeCountLbl" destination="vG5-oi-lC7" id="LvP-42-8h5"/>
+                        <outlet property="titleLbl" destination="W76-A4-pKy" id="DRq-lJ-fDH"/>
+                        <outlet property="userImage" destination="rXm-kc-Jht" id="j51-gX-yxz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kje-oj-Gkb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1060,6 +1094,7 @@
         <image name="backbutton" width="40" height="40"/>
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="chat" width="20" height="20"/>
+        <image name="comment" width="30" height="30"/>
         <image name="fbicon" width="10" height="18"/>
         <image name="follow" width="20" height="20"/>
         <image name="googleicon" width="22" height="22"/>
