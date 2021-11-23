@@ -29,6 +29,7 @@
 		D99E5860274840CA00600892 /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99E585F274840CA00600892 /* EditProfileVC.swift */; };
 		D99E5862274851B800600892 /* RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99E5861274851B800600892 /* RoundImage.swift */; };
 		D99E58642748A61F00600892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99E58632748A61B00600892 /* Assets.xcassets */; };
+		D9CFC800274D78E400D8A42A /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9CFC7FF274D78E400D8A42A /* DetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		D99E585F274840CA00600892 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		D99E5861274851B800600892 /* RoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImage.swift; sourceTree = "<group>"; };
 		D99E58632748A61B00600892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9CFC7FF274D78E400D8A42A /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		F1B6118489BBCC33AA136E90 /* Pods_Cravings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cravings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				B132C2C727432F3300BD7867 /* ChatVC.swift */,
 				B132C2C927432F4300BD7867 /* ProfileVC.swift */,
 				D99E585F274840CA00600892 /* EditProfileVC.swift */,
+				D9CFC7FF274D78E400D8A42A /* DetailVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				B132C2C827432F3300BD7867 /* ChatVC.swift in Sources */,
 				B1A3A88C273AF8C0008E1B9E /* AppDelegate.swift in Sources */,
 				B19B1A8A2743162D000CA953 /* RegisterVC.swift in Sources */,
+				D9CFC800274D78E400D8A42A /* DetailVC.swift in Sources */,
 				D91FD6552744C9C6008CAF01 /* (null) in Sources */,
 				D9518BF427444EE5001C1AE4 /* (null) in Sources */,
 				D99E5862274851B800600892 /* RoundImage.swift in Sources */,
