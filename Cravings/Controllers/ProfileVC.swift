@@ -6,24 +6,73 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileVC: UIViewController {
-
+    
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var followersCountLbl: UILabel!
+    
+        var collectionView: UICollectionView?
+        var screenSize: CGRect!
+        var screenWidth: CGFloat!
+        var screenHeight: CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+            let width = UIScreen.main.bounds.width
+            layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+            layout.itemSize = CGSize(width: width / 2, height: width / 2)
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
+            collectionView?.collectionViewLayout = layout
+    }
+    
+    @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func editProfileBtnPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func chatBtnPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func followBtnPressed(_ sender: UIButton) {
     }
     
 
-    /*
-    // MARK: - Navigation
+    
+  
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension ProfileVC : UICollectionViewDelegateFlowLayout{
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
-    */
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let collectionViewWidth = collectionView.bounds.width
+        return CGSize(width: collectionViewWidth/3, height: collectionViewWidth/3)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    
+    
+   
+    
+    
 }

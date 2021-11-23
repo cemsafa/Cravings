@@ -15,22 +15,20 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UITableViewDelegate, 
     
     var data = [String]()
     var filteredData = [String]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+    
         setUpData()
         
         searchTableView.delegate = self
         searchTableView.dataSource = self
         
-        title = "Search"
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
-       
-     
+   
 
     }
     
