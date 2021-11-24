@@ -8,8 +8,10 @@
 import UIKit
 import SwiftUI
 
-class DetailVC: UIViewController {
+class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet weak var commentsTableView: UITableView!
     
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var userImage: UIImageView!
@@ -20,8 +22,15 @@ class DetailVC: UIViewController {
     @IBOutlet weak var captionLbl: UILabel!
     
     
+    var comments = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userImage.roundedImage()
+        
+        commentsTableView.delegate = self
+        commentsTableView.dataSource = self
         
       
     }
@@ -35,5 +44,22 @@ class DetailVC: UIViewController {
     
     @IBAction func commentBtnPressed(_ sender: UIButton) {
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return comments.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath)
+        cell.textLabel?.text = comments[indexPath.row]
+                
+        return cell
+        
+    }
+    
+    
+    
+    
 }
 
