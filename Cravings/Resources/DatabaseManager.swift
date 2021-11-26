@@ -9,6 +9,7 @@ import Foundation
 import FirebaseDatabase
 import CoreMedia
 import RealmSwift
+import AVFoundation
 
 public class DatabaseManager {
     
@@ -210,8 +211,13 @@ public class DatabaseManager {
         }
     }
     
-    public func sendMessage(to conversaiton: String, name: String, newMessage: Message, completion: @escaping (Bool) -> Void) {
-        database.child("\(conversaiton)/messages").observeSingleEvent(of: .value) { snapshot in
+    public func sendMessage(to conversation: String, otherUserEmail: String, name: String, newMessage: Message, completion: @escaping (Bool) -> Void) {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
+            completion(false)
+            return
+        }
+        let currentEmail = email.safeDatabaseKey()
+        database.child("\(conversation)/messages").observeSingleEvent(of: .value) { snapshot in
             guard var currentMessages = snapshot.value as? [[String: Any]] else {
                 completion(false)
                 return
@@ -256,12 +262,76 @@ public class DatabaseManager {
                 "is_read": false
             ]
             currentMessages.append(newMessageElement)
-            self.database.child("\(conversaiton)/messages").setValue(currentMessages) { error, _ in
+            self.database.child("\(conversation)/messages").setValue(currentMessages) { error, _ in
                 guard error == nil else {
                     completion(false)
                     return
                 }
-                completion(true)
+                self.database.child("\(currentEmail)/conversations").observeSingleEvent(of: .value) { snapshot in
+                    guard var currentUserConversations = snapshot.value as? [[String: Any]] else {
+                        completion(false)
+                        return
+                    }
+                    let updatedValue: [String: Any] = [
+                        "date": dateString,
+                        "is_read": false,
+                        "message": message
+                    ]
+                    var targetConversation: [String: Any]?
+                    var position = 0
+                    for conversationDict in currentUserConversations {
+                        if let currentId = conversationDict["id"] as? String, currentId == conversation {
+                            targetConversation = conversationDict
+                            break
+                        }
+                        position += 1
+                    }
+                    targetConversation?["latest_message"] = updatedValue
+                    guard let finalConversation = targetConversation else {
+                        completion(false)
+                        return
+                    }
+                    currentUserConversations[position] = finalConversation
+                    self.database.child("\(currentEmail)").setValue(currentUserConversations) { error, _ in
+                        guard error == nil else {
+                            completion(false)
+                            return
+                        }
+                        self.database.child("\(otherUserEmail.safeDatabaseKey())/conversations").observeSingleEvent(of: .value) { snapshot in
+                            guard var otherUserConversations = snapshot.value as? [[String: Any]] else {
+                                completion(false)
+                                return
+                            }
+                            let updatedValue: [String: Any] = [
+                                "date": dateString,
+                                "is_read": false,
+                                "message": message
+                            ]
+                            var targetConversation: [String: Any]?
+                            var position = 0
+                            for conversationDict in otherUserConversations {
+                                if let currentId = conversationDict["id"] as? String, currentId == conversation {
+                                    targetConversation = conversationDict
+                                    break
+                                }
+                                position += 1
+                            }
+                            targetConversation?["latest_message"] = updatedValue
+                            guard let finalConversation = targetConversation else {
+                                completion(false)
+                                return
+                            }
+                            otherUserConversations[position] = finalConversation
+                            self.database.child("\(otherUserEmail.safeDatabaseKey())").setValue(otherUserConversations) { error, _ in
+                                guard error == nil else {
+                                    completion(false)
+                                    return
+                                }
+                                completion(true)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
