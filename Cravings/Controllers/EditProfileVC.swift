@@ -10,7 +10,7 @@ import UIKit
 class EditProfileVC: UIViewController {
     
     @IBOutlet weak var editProfileImage: UIImageView!
-    @IBOutlet weak var addPhotoLbl: UILabel!
+    @IBOutlet weak var editPhotoButton: UIButton!
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -18,41 +18,71 @@ class EditProfileVC: UIViewController {
     @IBOutlet weak var webYTField: UITextField!
     @IBOutlet weak var aboutMeField: UITextField!
     
+    var fullName: String {
+        return nameField.text ?? ""
+    }
+    
+    var userName: String {
+        return usernameField.text ?? ""
+    }
+    
+    var bio: String {
+        return titleField.text ?? ""
+    }
+    
+    var websiteLink: String {
+        return webYTField.text ?? ""
+    }
+    
+    var aboutMe: String {
+        return aboutMeField.text ?? ""
+    }
+    
     let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          
         editProfileImage.roundedImage()
-        
-        let addPhotoTappedRecognizer = UITapGestureRecognizer(target: self, action: #selector(addPhotoLblTapped))
-        addPhotoLbl.isUserInteractionEnabled = true
-        addPhotoLbl.addGestureRecognizer(addPhotoTappedRecognizer)
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        // api call
+        // but populate date first
+        if isDataValid {
+            DatabaseManager.shared.updateUserProfile(fullName: fullName, bio: bio, userName: userName, websiteLink: websiteLink, aboutMe: aboutMe) { success in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                }
+                else {
+                    self.showAlert()
+                }
+            }
+        }
+        else {
+            // show alert
+            showAlert()
+        }
+    }
+    
+    func showAlert() {
         
     }
     
-    
-    
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
+    var isDataValid: Bool {
+        return !(fullName.isEmpty || userName.isEmpty || bio.isEmpty || aboutMe.isEmpty)
     }
     
     @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
-    
    
-    @IBAction func addPhotoLblTapped (sender: UITapGestureRecognizer) {
-        
+    @IBAction func editPhotoLblTapped (_ sender: UIButton) {
         picker.allowsEditing = true
         //picker.sourceType = .camera   //camera will work on real ios device
         picker.delegate = self
         present(picker, animated: true)
-        
-               
     }
     
-    
-    
-   
 }
 
 extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -69,6 +99,6 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
             return
         }
         editProfileImage.image = image
-        
     }
+    
 }

@@ -403,7 +403,39 @@ public class DatabaseManager {
     public enum DatabaseErrors: Error {
         case failedToFetch
     }
+    
+    
+    
+    
+    public func updateUserProfile(fullName: String, bio: String, userName: String, websiteLink: String, aboutMe: String, completion: @escaping (Bool) -> Void) {
+        let updateElement = [
+            UserProfileKeys.email.rawValue : userEmail,
+            UserProfileKeys.userName.rawValue : userName,
+            UserProfileKeys.fullName.rawValue : fullName,
+            UserProfileKeys.bio.rawValue : bio,
+            UserProfileKeys.websiteLink.rawValue : websiteLink,
+            UserProfileKeys.aboutMe.rawValue : aboutMe
+        ]
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            var collection = snapshot.value as? [[String: String]] ?? [[String: String]]()
+            collection.append(updateElement)
+            self.database.child("users").setValue(collection) { error, _ in
+                guard error == nil else {
+                    completion(false)
+                    return
+                }
+                completion(true)
+            }
+        }
+    }
+    
+    
+    
+    
+    
 }
+
+let userEmail: String = UserDefaults.standard.value(forKey: "email") as? String ?? ""
 
 public struct User {
     let email: String
@@ -412,4 +444,14 @@ public struct User {
     var profilePictureFilename: String {
         return "\(email.safeDatabaseKey())_profile_picture.png"
     }
+}
+
+
+enum UserProfileKeys: String {
+    case email = "email"
+    case userName = "user_name"
+    case fullName = "full_name"
+    case bio = "bio"
+    case websiteLink = "website_link"
+    case aboutMe = "about_me"
 }
