@@ -51,21 +51,31 @@ class EditProfileVC: UIViewController {
         if isDataValid {
             DatabaseManager.shared.updateUserProfile(fullName: fullName, bio: bio, userName: userName, websiteLink: websiteLink, aboutMe: aboutMe) { success in
                 if success {
-                    self.navigationController?.popViewController(animated: true)
+                    self.showAlert(message: "Profile Updated", true)
                 }
                 else {
-                    self.showAlert()
+                    self.showAlert(message: "Error in saving data")
                 }
             }
         }
         else {
             // show alert
-            showAlert()
+            showAlert(message: "please fill all the fields")
         }
     }
     
-    func showAlert() {
+    func showAlert(message: String, _ shouldPop: Bool = false) {
+        let alert = UIAlertController(title: message, message: "",preferredStyle: UIAlertController.Style.alert)
         
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+            if shouldPop {
+                self.navigationController?.popViewController(animated: true)
+            }
+            else {
+                alert.dismiss(animated: true, completion: nil)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     var isDataValid: Bool {
