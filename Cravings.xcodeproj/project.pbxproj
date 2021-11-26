@@ -15,6 +15,10 @@
 		B132C2CC274335F900BD7867 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132C2CB274335F900BD7867 /* AuthManager.swift */; };
 		B132C2CE2743361E00BD7867 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132C2CD2743361E00BD7867 /* DatabaseManager.swift */; };
 		B1706395274D450700A4E7A5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1706394274D450700A4E7A5 /* Extensions.swift */; };
+		B1706397274ED72C00A4E7A5 /* ConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1706396274ED72C00A4E7A5 /* ConversationVC.swift */; };
+		B1706399274EE09000A4E7A5 /* NewConversationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1706398274EE09000A4E7A5 /* NewConversationVC.swift */; };
+		B170639D274EE92A00A4E7A5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170639C274EE92A00A4E7A5 /* StorageManager.swift */; };
+		B170639F2750428100A4E7A5 /* ChatTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170639E2750428000A4E7A5 /* ChatTVCell.swift */; };
 		B19B1A8827431619000CA953 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B1A8727431619000CA953 /* LoginVC.swift */; };
 		B19B1A8A2743162D000CA953 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B1A892743162D000CA953 /* RegisterVC.swift */; };
 		B19B1A9027431C9E000CA953 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B1A8F27431C9E000CA953 /* Models.swift */; };
@@ -42,6 +46,10 @@
 		B132C2CB274335F900BD7867 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		B132C2CD2743361E00BD7867 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		B1706394274D450700A4E7A5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B1706396274ED72C00A4E7A5 /* ConversationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationVC.swift; sourceTree = "<group>"; };
+		B1706398274EE09000A4E7A5 /* NewConversationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationVC.swift; sourceTree = "<group>"; };
+		B170639C274EE92A00A4E7A5 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		B170639E2750428000A4E7A5 /* ChatTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTVCell.swift; sourceTree = "<group>"; };
 		B19B1A8727431619000CA953 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B19B1A892743162D000CA953 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		B19B1A8F27431C9E000CA953 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -89,6 +97,8 @@
 				B132C2C727432F3300BD7867 /* ChatVC.swift */,
 				B132C2C927432F4300BD7867 /* ProfileVC.swift */,
 				D99E585F274840CA00600892 /* EditProfileVC.swift */,
+				B1706396274ED72C00A4E7A5 /* ConversationVC.swift */,
+				B1706398274EE09000A4E7A5 /* NewConversationVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -99,6 +109,7 @@
 				B1A3A891273AF8C0008E1B9E /* Main.storyboard */,
 				B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */,
 				D99E58632748A61B00600892 /* Assets.xcassets */,
+				B170639E2750428000A4E7A5 /* ChatTVCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +130,7 @@
 				B132C2CB274335F900BD7867 /* AuthManager.swift */,
 				B132C2CD2743361E00BD7867 /* DatabaseManager.swift */,
 				B1706394274D450700A4E7A5 /* Extensions.swift */,
+				B170639C274EE92A00A4E7A5 /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -279,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1706399274EE09000A4E7A5 /* NewConversationVC.swift in Sources */,
 				B132C2CA27432F4300BD7867 /* ProfileVC.swift in Sources */,
 				B132C2C827432F3300BD7867 /* ChatVC.swift in Sources */,
 				B1A3A88C273AF8C0008E1B9E /* AppDelegate.swift in Sources */,
@@ -286,6 +299,8 @@
 				D91FD6552744C9C6008CAF01 /* (null) in Sources */,
 				D9518BF427444EE5001C1AE4 /* (null) in Sources */,
 				B1A3A88E273AF8C0008E1B9E /* SceneDelegate.swift in Sources */,
+				B1706397274ED72C00A4E7A5 /* ConversationVC.swift in Sources */,
+				B170639D274EE92A00A4E7A5 /* StorageManager.swift in Sources */,
 				B132C2C627432F1100BD7867 /* CameraVC.swift in Sources */,
 				B132C2C227432EDE00BD7867 /* HomeVC.swift in Sources */,
 				B19B1A8827431619000CA953 /* LoginVC.swift in Sources */,
@@ -293,6 +308,7 @@
 				B132C2CE2743361E00BD7867 /* DatabaseManager.swift in Sources */,
 				B132C2CC274335F900BD7867 /* AuthManager.swift in Sources */,
 				B1706395274D450700A4E7A5 /* Extensions.swift in Sources */,
+				B170639F2750428100A4E7A5 /* ChatTVCell.swift in Sources */,
 				B19B1A9027431C9E000CA953 /* Models.swift in Sources */,
 				B132C2C427432EEE00BD7867 /* SearchVC.swift in Sources */,
 			);
@@ -450,6 +466,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -462,7 +479,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -480,6 +497,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -492,7 +510,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
