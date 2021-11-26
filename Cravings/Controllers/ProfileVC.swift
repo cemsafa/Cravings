@@ -27,6 +27,8 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        profileImage.roundedImage()
+        
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
             let width = UIScreen.main.bounds.width
             layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
