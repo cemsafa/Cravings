@@ -14,7 +14,6 @@ class ProfileVC: UIViewController {
     
     
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var followersCountLbl: UILabel!
@@ -26,7 +25,7 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Edit Profile"
         profileImage.roundedImage()
         
             let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -39,45 +38,42 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {
-        
         GIDSignIn.sharedInstance.signOut()
-        
         FBSDKLoginKit.LoginManager().logOut()
-        
         AuthManager.shared.logOut { success in
-            guard !success else {
-                guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginVC") else { return }
+            if success {
+                guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginVC") else {
+                    return
+                }
                 let nav = UINavigationController(rootViewController: loginVC)
                 nav.modalPresentationStyle = .fullScreen
                 present(nav, animated: true)
-                return
             }
         }
     }
     
     @IBAction func editProfileBtnPressed(_ sender: UIButton) {
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func chatBtnPressed(_ sender: UIButton) {
+        
     }
     
     @IBAction func followBtnPressed(_ sender: UIButton) {
+        
     }
-    
-
-    
   
 }
 
 extension ProfileVC : UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        
         return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let collectionViewWidth = collectionView.bounds.width
         return CGSize(width: collectionViewWidth/3, height: collectionViewWidth/3)
     }
@@ -85,12 +81,9 @@ extension ProfileVC : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
-    
-    
-   
-    
     
 }

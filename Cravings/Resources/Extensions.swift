@@ -48,3 +48,5 @@ extension UIView {
     }
 
 }
+
+let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)

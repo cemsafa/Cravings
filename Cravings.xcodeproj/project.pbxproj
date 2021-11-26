@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F63AC2B27510B3900A2196D /* AddPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63AC2927510B3900A2196D /* AddPostCollectionViewCell.swift */; };
+		4F63AC2C27510B3900A2196D /* AddPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F63AC2A27510B3900A2196D /* AddPostCollectionViewCell.xib */; };
 		B132C2C227432EDE00BD7867 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132C2C127432EDE00BD7867 /* HomeVC.swift */; };
 		B132C2C427432EEE00BD7867 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132C2C327432EEE00BD7867 /* SearchVC.swift */; };
 		B132C2C627432F1100BD7867 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132C2C527432F1100BD7867 /* CameraVC.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F63AC2927510B3900A2196D /* AddPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F63AC2A27510B3900A2196D /* AddPostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		6A8B205FDE955D9FFADDD936 /* Pods-Cravings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.release.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.release.xcconfig"; sourceTree = "<group>"; };
 		A1C5FD667479BABF2D2FDB88 /* Pods-Cravings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.debug.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.debug.xcconfig"; sourceTree = "<group>"; };
 		B132C2C127432EDE00BD7867 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 				B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */,
 				D99E58632748A61B00600892 /* Assets.xcassets */,
 				B170639E2750428000A4E7A5 /* ChatTVCell.swift */,
+				4F63AC2927510B3900A2196D /* AddPostCollectionViewCell.swift */,
+				4F63AC2A27510B3900A2196D /* AddPostCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F63AC2C27510B3900A2196D /* AddPostCollectionViewCell.xib in Resources */,
 				D9518BED27442DC0001C1AE4 /* (null) in Resources */,
 				B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */,
 				B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */,
@@ -296,6 +303,7 @@
 			files = (
 				B1706399274EE09000A4E7A5 /* NewConversationVC.swift in Sources */,
 				B132C2CA27432F4300BD7867 /* ProfileVC.swift in Sources */,
+				4F63AC2B27510B3900A2196D /* AddPostCollectionViewCell.swift in Sources */,
 				B132C2C827432F3300BD7867 /* ChatVC.swift in Sources */,
 				B1A3A88C273AF8C0008E1B9E /* AppDelegate.swift in Sources */,
 				B19B1A8A2743162D000CA953 /* RegisterVC.swift in Sources */,

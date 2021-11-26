@@ -10,7 +10,7 @@ import UIKit
 class EditProfileVC: UIViewController {
     
     @IBOutlet weak var editProfileImage: UIImageView!
-    @IBOutlet weak var addPhotoLbl: UILabel!
+    @IBOutlet weak var editPhotoButton: UIButton!
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
@@ -22,37 +22,25 @@ class EditProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          
         editProfileImage.roundedImage()
-        
-        let addPhotoTappedRecognizer = UITapGestureRecognizer(target: self, action: #selector(addPhotoLblTapped))
-        addPhotoLbl.isUserInteractionEnabled = true
-        addPhotoLbl.addGestureRecognizer(addPhotoTappedRecognizer)
-        
     }
     
-    
-    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        // api call
+        // but populate date first
     }
     
     @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
-    
    
-    @IBAction func addPhotoLblTapped (sender: UITapGestureRecognizer) {
-        
+    @IBAction func editPhotoLblTapped (_ sender: UIButton) {
         picker.allowsEditing = true
         //picker.sourceType = .camera   //camera will work on real ios device
         picker.delegate = self
         present(picker, animated: true)
-        
-               
     }
     
-    
-    
-   
 }
 
 extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -69,6 +57,6 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
             return
         }
         editProfileImage.image = image
-        
     }
+    
 }
