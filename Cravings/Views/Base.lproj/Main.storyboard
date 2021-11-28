@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Eie-Np-e3X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="G6p-vW-ciy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -475,7 +475,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l7i-qb-KRq">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchTableCell" id="jmf-61-J4E">
@@ -742,6 +742,61 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gcT-gS-iba" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1128" y="1446"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AIL-LJ-tiN">
+            <objects>
+                <viewController id="G6p-vW-ciy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dJY-v2-Zv3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fu-4n-aUX">
+                                <rect key="frame" x="54" y="80" width="124" height="36"/>
+                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JFQ-Oc-4iC">
+                                <rect key="frame" x="20" y="155" width="374" height="374"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvp-vP-9wQ">
+                                <rect key="frame" x="20" y="578" width="79" height="36"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                                    <fontDescription key="titleFontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.16470587249999999" green="0.16470587249999999" blue="0.16470587249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNd-mG-Xiv">
+                                <rect key="frame" x="323" y="578" width="62" height="36"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next">
+                                    <fontDescription key="titleFontDescription" name="Optima-Bold" family="Optima" pointSize="18"/>
+                                    <color key="baseForegroundColor" red="0.16470587249999999" green="0.16470587249999999" blue="0.16470587249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LbG-Po-2G8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LbG-Po-2G8" firstAttribute="bottom" secondItem="JFQ-Oc-4iC" secondAttribute="bottom" constant="333" id="6Xj-CN-eFf"/>
+                            <constraint firstItem="LbG-Po-2G8" firstAttribute="trailing" secondItem="UNd-mG-Xiv" secondAttribute="trailing" constant="29" id="BBc-5D-cSE"/>
+                            <constraint firstItem="0Fu-4n-aUX" firstAttribute="leading" secondItem="LbG-Po-2G8" secondAttribute="leading" constant="54" id="IgL-lJ-4i4"/>
+                            <constraint firstItem="UNd-mG-Xiv" firstAttribute="top" secondItem="JFQ-Oc-4iC" secondAttribute="bottom" constant="49" id="Mgv-YO-p1J"/>
+                            <constraint firstItem="JFQ-Oc-4iC" firstAttribute="leading" secondItem="LbG-Po-2G8" secondAttribute="leading" constant="20" id="Vj0-te-uC5"/>
+                            <constraint firstItem="lvp-vP-9wQ" firstAttribute="top" secondItem="JFQ-Oc-4iC" secondAttribute="bottom" constant="49" id="iny-ca-9b9"/>
+                            <constraint firstItem="LbG-Po-2G8" firstAttribute="trailing" secondItem="JFQ-Oc-4iC" secondAttribute="trailing" constant="20" id="ipC-Ie-8l7"/>
+                            <constraint firstItem="JFQ-Oc-4iC" firstAttribute="top" secondItem="0Fu-4n-aUX" secondAttribute="bottom" constant="39" id="j4F-Tp-qHQ"/>
+                            <constraint firstItem="lvp-vP-9wQ" firstAttribute="leading" secondItem="LbG-Po-2G8" secondAttribute="leading" constant="20" id="mb8-jd-byb"/>
+                            <constraint firstItem="0Fu-4n-aUX" firstAttribute="top" secondItem="LbG-Po-2G8" secondAttribute="top" constant="36" id="tQx-Lu-aPO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zf-Vw-UgR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124.6376811594205" y="2149.5535714285711"/>
         </scene>
         <!--ChatVC-->
         <scene sceneID="6cO-Jh-8JS">
