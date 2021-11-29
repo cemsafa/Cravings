@@ -6,25 +6,20 @@
 //
 
 import UIKit
+import FirebaseAuth
+import JGProgressHUD
 
 class RegisterVC: UIViewController {
+    
+    private let spinner = JGProgressHUD(style: .dark)
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var loginLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let loginTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(loginLblTapped))
-        loginLbl.isUserInteractionEnabled = true
-        loginLbl.addGestureRecognizer(loginTapRecognizer)
-    }
-    
-    @IBAction func loginLblTapped(sender: UITapGestureRecognizer) {
-        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func signupBtnTapped(_ sender: UIButton) {
@@ -46,13 +41,32 @@ class RegisterVC: UIViewController {
                   return
               }
         
-        AuthManager.shared.regsiterNewUser(fullname: fullName, username: userName, email: email, password: password) { success in
-            if success {
-                guard let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") else { return }
-                tabBarController.modalPresentationStyle = .fullScreen
-                self.present(tabBarController, animated: false)
-            } else {
-                self.registerAlert(message: "Error creating user.")
+        spinner.show(in: view)
+        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaults.standard.set(fullName, forKey: "fullname")
+        DatabaseManager.shared.canCreateUser(with: email) { success in
+            
+            DispatchQueue.main.async {
+                self.spinner.dismiss()
+            }
+            
+            guard !success else {
+                self.registerAlert(message: "Email already has an account")
+                return
+            }
+            
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                guard result != nil, error == nil else {
+                    self.registerAlert(message: error!.localizedDescription)
+                    return
+                }
+                
+                DatabaseManager.shared.insertNewUser(with: User(email: email, username: userName, fullname: fullName)) { success in
+                    if success {
+                        
+                    }
+                }
+                self.navigationController?.dismiss(animated: true, completion: nil)
             }
         }
     }

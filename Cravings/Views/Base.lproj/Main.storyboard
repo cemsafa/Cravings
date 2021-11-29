@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hgH-xB-VAD">
-                                <rect key="frame" x="22" y="216" width="370" height="464"/>
+                                <rect key="frame" x="22" y="232.5" width="370" height="431"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Cravings2" translatesAutoresizingMaskIntoConstraints="NO" id="gsk-vz-Sdw">
                                         <rect key="frame" x="56" y="0.0" width="258" height="101"/>
@@ -50,7 +50,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="GYy-ou-dmg"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" smartInsertDeleteType="yes"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9G-gC-zir">
                                                 <rect key="frame" x="0.0" y="60" width="370" height="40"/>
@@ -68,7 +68,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="IsG-h4-4UR"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n03-f1-2rb">
                                                 <rect key="frame" x="0.0" y="180" width="370" height="40"/>
@@ -82,7 +82,7 @@
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utq-6f-uuo">
                                                 <rect key="frame" x="0.0" y="240" width="370" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="370" id="EJR-i0-A5o"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="EJR-i0-A5o"/>
                                                     <constraint firstAttribute="height" constant="40" id="ewK-wr-sqw"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
@@ -99,15 +99,6 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you already have an account. Log In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhU-R7-rYf">
-                                        <rect key="frame" x="70" y="447" width="230" height="17"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
-                                        </variation>
-                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Au9-nS-zey" firstAttribute="top" secondItem="uO8-II-RGi" secondAttribute="bottom" constant="16" id="5d5-8T-J02"/>
@@ -127,7 +118,6 @@
                     <navigationItem key="navigationItem" id="ez3-Zt-zlC"/>
                     <connections>
                         <outlet property="emailField" destination="dmJ-1S-9B1" id="CVo-DL-PW1"/>
-                        <outlet property="loginLbl" destination="HhU-R7-rYf" id="LPh-b2-KwL"/>
                         <outlet property="nameField" destination="tG5-Vb-c7a" id="Ggl-t1-7dP"/>
                         <outlet property="passwordField" destination="n03-f1-2rb" id="Gdt-GS-RGe"/>
                         <outlet property="usernameField" destination="a9G-gC-zir" id="fxp-Ml-JXl"/>
@@ -178,7 +168,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="sdi-ZK-jJP"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dr0-H6-Cwk">
                                                 <rect key="frame" x="0.0" y="60" width="370" height="40"/>
@@ -193,7 +183,7 @@
                                                 <rect key="frame" x="0.0" y="120" width="370" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Kfd-Yg-P3c"/>
-                                                    <constraint firstAttribute="width" constant="370" id="W4L-wU-14n"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="W4L-wU-14n"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Log In">
@@ -257,13 +247,13 @@
                                                     <color key="baseForegroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="facebookLoginBtnTapped:" destination="18i-Wb-EPa" eventType="touchUpInside" id="0rt-0v-ghb"/>
+                                                    <action selector="facebookLoginBtnTapped:" destination="18i-Wb-EPa" eventType="touchUpInside" id="XHq-FP-RAC"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aR1-ow-K3q">
                                                 <rect key="frame" x="0.0" y="38" width="370" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="370" id="MUB-oL-95l"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="MUB-oL-95l"/>
                                                     <constraint firstAttribute="height" constant="35" id="bMN-jt-oYX"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
@@ -381,7 +371,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Websiet or Youtube Link" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bf6-Va-3uB">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Website or Youtube Link" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bf6-Va-3uB">
                                                 <rect key="frame" x="0.0" y="165" width="370" height="40"/>
                                                 <color key="backgroundColor" red="0.87450980389999999" green="0.84705882349999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -403,7 +393,7 @@
                                                 <rect key="frame" x="0.0" y="315" width="370" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="7w3-6j-5il"/>
-                                                    <constraint firstAttribute="width" constant="370" id="QHU-j6-Kzs"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="370" id="QHU-j6-Kzs"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Save">
@@ -423,28 +413,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pea-iE-DcA">
-                                <rect key="frame" x="24" y="40" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="NkY-tI-KzQ"/>
-                                    <constraint firstAttribute="width" constant="40" id="Sqe-wA-YYU"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="backbutton">
-                                    <color key="baseForegroundColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="backButton:" destination="VjH-PY-W1D" eventType="touchUpInside" id="Ncd-kX-hYV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kzs-MF-2Wv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="efY-24-jeJ" firstAttribute="centerY" secondItem="f9N-v3-xnH" secondAttribute="centerY" id="0Fp-fi-1qQ"/>
                             <constraint firstItem="efY-24-jeJ" firstAttribute="centerX" secondItem="f9N-v3-xnH" secondAttribute="centerX" id="JqJ-ri-kef"/>
-                            <constraint firstItem="Pea-iE-DcA" firstAttribute="leading" secondItem="kzs-MF-2Wv" secondAttribute="leading" constant="24" id="ruQ-do-Hwk"/>
-                            <constraint firstItem="Pea-iE-DcA" firstAttribute="top" secondItem="f9N-v3-xnH" secondAttribute="top" constant="40" id="tvL-Lh-eor"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -893,7 +867,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEv-rH-cHY">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="35.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="chat" title=" Chat ">
+                                        <buttonConfiguration key="configuration" style="plain" image="ellipsis.bubble" catalog="system" title=" Chat ">
                                             <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
                                             <color key="baseForegroundColor" red="0.16470587249999999" green="0.16470587249999999" blue="0.16470587249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
@@ -904,7 +878,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-2m-iIe">
                                         <rect key="frame" x="95" y="0.0" width="95" height="35.5"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="follow" title=" Follow">
+                                        <buttonConfiguration key="configuration" style="plain" image="person.badge.plus" catalog="system" title=" Follow">
                                             <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
                                             <color key="baseForegroundColor" red="0.16470587249999999" green="0.16470587249999999" blue="0.16470587249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
@@ -1030,8 +1004,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OZL-MH-sfg">
-                        <barButtonItem key="rightBarButtonItem" image="arrow.right" catalog="system" id="TYx-xS-nBg">
-                            <color key="tintColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="rightBarButtonItem" image="rectangle.portrait.and.arrow.right" catalog="system" id="TYx-xS-nBg">
                             <connections>
                                 <action selector="signoutBtnPressed:" destination="URc-LV-o7D" id="46M-Je-Ph3"/>
                             </connections>
@@ -1169,12 +1142,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oBx-j4-M5c" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="qnf-Wo-6Zc"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="yfv-nP-tsf">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yfv-nP-tsf">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="25"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1245,22 +1215,20 @@
     </scenes>
     <resources>
         <image name="Cravings2" width="219" height="77"/>
-        <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="avatar2" width="1024" height="1024"/>
-        <image name="backbutton" width="40" height="40"/>
         <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
-        <image name="chat" width="20" height="20"/>
-        <image name="comment" width="30" height="30"/>
+        <image name="ellipsis.bubble" catalog="system" width="128" height="110"/>
         <image name="fbicon" width="10" height="18"/>
-        <image name="follow" width="20" height="20"/>
         <image name="googleicon" width="22" height="22"/>
         <image name="heart2" width="30" height="30"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="pancake" width="1080" height="1080"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="ramen" width="4242" height="6364"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="108"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
+import GoogleSignIn
 
 class ProfileVC: UIViewController {
     
@@ -37,6 +39,20 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {
+        
+        GIDSignIn.sharedInstance.signOut()
+        
+        FBSDKLoginKit.LoginManager().logOut()
+        
+        AuthManager.shared.logOut { success in
+            guard !success else {
+                guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginVC") else { return }
+                let nav = UINavigationController(rootViewController: loginVC)
+                nav.modalPresentationStyle = .fullScreen
+                present(nav, animated: true)
+                return
+            }
+        }
     }
     
     @IBAction func editProfileBtnPressed(_ sender: UIButton) {
