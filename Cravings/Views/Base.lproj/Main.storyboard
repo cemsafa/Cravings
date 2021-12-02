@@ -820,6 +820,95 @@
             </objects>
             <point key="canvasLocation" x="1128" y="1446"/>
         </scene>
+        <!--New PostVC-->
+        <scene sceneID="AIL-LJ-tiN">
+            <objects>
+                <viewController storyboardIdentifier="NewPost1VC" id="G6p-vW-ciy" customClass="NewPostVC" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dJY-v2-Zv3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Ksj-rh-w1w">
+                                <rect key="frame" x="8" y="148" width="398" height="600"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="nDq-m5-0rI">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="412"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Post" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7p3-KE-V0h">
+                                                <rect key="frame" x="137" y="0.0" width="124" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="124" id="0lx-hu-9Op"/>
+                                                    <constraint firstAttribute="height" constant="36" id="Dgy-ta-BGw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="30"/>
+                                                <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VsN-GV-JfE">
+                                                <rect key="frame" x="5" y="62" width="388" height="350"/>
+                                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="350" id="mbO-Nr-Ptx"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Add caption here..." textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="KSo-gw-tPQ">
+                                        <rect key="frame" x="0.0" y="436" width="398" height="102"/>
+                                        <color key="backgroundColor" red="0.87450980389999999" green="0.84705882349999995" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="102" id="nqJ-zf-oFP"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="229" translatesAutoresizingMaskIntoConstraints="NO" id="DcQ-vp-Zvg">
+                                        <rect key="frame" x="0.0" y="562" width="398" height="38"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYD-jK-sEd">
+                                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="38"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                                                    <fontDescription key="titleFontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
+                                                    <color key="baseForegroundColor" red="0.16470587249999999" green="0.16470587249999999" blue="0.16470587249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="cancelBtnPressed:" destination="G6p-vW-ciy" eventType="touchUpInside" id="k0q-KK-fjT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrO-qv-dFZ">
+                                                <rect key="frame" x="313.5" y="0.0" width="84.5" height="38"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Post">
+                                                    <fontDescription key="titleFontDescription" name="Optima-Bold" family="Optima" pointSize="20"/>
+                                                    <color key="baseForegroundColor" red="0.16470587249999999" green="0.16470587249999999" blue="0.16470587249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="postBtnPressed:" destination="G6p-vW-ciy" eventType="touchUpInside" id="B00-9H-9ae"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LbG-Po-2G8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ksj-rh-w1w" firstAttribute="centerX" secondItem="dJY-v2-Zv3" secondAttribute="centerX" id="C3Q-xc-XdH"/>
+                            <constraint firstItem="Ksj-rh-w1w" firstAttribute="centerY" secondItem="dJY-v2-Zv3" secondAttribute="centerY" id="sOX-rL-kll"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addCaptionTextField" destination="KSo-gw-tPQ" id="x75-N6-BST"/>
+                        <outlet property="newPostImage" destination="VsN-GV-JfE" id="mfV-zG-zG2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Zf-Vw-UgR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124.6376811594205" y="2148.8839285714284"/>
+        </scene>
         <!--ChatVC-->
         <scene sceneID="6cO-Jh-8JS">
             <objects>
