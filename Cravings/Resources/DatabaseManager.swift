@@ -10,6 +10,8 @@ import FirebaseDatabase
 import CoreMedia
 import RealmSwift
 import AVFoundation
+import UIKit
+import FirebaseStorage
 
 public class DatabaseManager {
     
@@ -409,7 +411,6 @@ public class DatabaseManager {
     
     public func updateUserProfile(fullName: String, bio: String, userName: String, websiteLink: String, aboutMe: String, completion: @escaping (Bool) -> Void) {
         let updateElement = [
-            UserProfileKeys.email.rawValue : userEmail,
             UserProfileKeys.userName.rawValue : userName,
             UserProfileKeys.fullName.rawValue : fullName,
             UserProfileKeys.bio.rawValue : bio,
@@ -417,21 +418,62 @@ public class DatabaseManager {
             UserProfileKeys.aboutMe.rawValue : aboutMe
         ]
         self.database.child("users").observeSingleEvent(of: .value) { snapshot in
-            var collection = snapshot.value as? [[String: String]] ?? [[String: String]]()
-            collection.append(updateElement)
-            self.database.child("users").setValue(collection) { error, _ in
-                guard error == nil else {
-                    completion(false)
-                    return
+            let collection = snapshot.value as? [String: [String : String]] ?? [String: [String : String]]()
+            if let key = collection.first(where: { $0.value[UserProfileKeys.email.rawValue] == userEmail })?.key {
+                self.database.child("users").child(key).setValue(updateElement) { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    completion(true)
                 }
-                completion(true)
             }
         }
     }
     
+    public func updateUserProfilePicture(profilePic: UIImage, completion: @escaping (Bool) -> Void) {
+        let updateElement = [
+            UserProfileKeys.profilePic.rawValue : ""
+        ]
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            let collection = snapshot.value as? [String: [String : String]] ?? [String: [String : String]]()
+            if let key = collection.first(where: { $0.value[UserProfileKeys.email.rawValue] == userEmail })?.key {
+                self.database.child("users").child(key).setValue(updateElement) { error, _ in
+                    guard error == nil else {
+                        completion(false)
+                        return
+                    }
+                    completion(true)
+                }
+            }
+        }
+    }
     
+//    func uploadProfilePic(completion: @escaping (_ url: String?) -> Void) {
+//        let storageRef = FirebaseStorage.StorageReference.reference().child("myImage.png")
+////        if let uploadData = UIImagePNGRepresentation(self.myImageView.image!) {
+////            storageRef.put(uploadData, metadata: nil) { (metadata, error) in
+////                if error != nil {
+////                    print("error")
+////                    completion(nil)
+////                } else {
+////                    completion((metadata?.downloadURL()?.absoluteString)!))
+////                    // your uploaded photo url.
+////                }
+////           }
+//     }
     
-    
+    public func getUserProfile(completion: @escaping (Bool , [String : String]?) -> Void) {
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            let collection = snapshot.value as? [[String : String]] ?? [[String : String]]()
+            if let value = collection.first(where: { $0[UserProfileKeys.email.rawValue] == userEmail }) {
+                completion(true, value)
+            }
+            else {
+                completion(false, nil)
+            }
+        }
+    }
     
 }
 
@@ -449,9 +491,10 @@ public struct User {
 
 enum UserProfileKeys: String {
     case email = "email"
-    case userName = "user_name"
-    case fullName = "full_name"
+    case userName = "username"
+    case fullName = "name"
     case bio = "bio"
     case websiteLink = "website_link"
     case aboutMe = "about_me"
+    case profilePic = "profile_pic"
 }

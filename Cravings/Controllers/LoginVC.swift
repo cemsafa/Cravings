@@ -89,13 +89,13 @@ class LoginVC: UIViewController {
                     DatabaseManager.shared.getData(for: safeEmail) { result in
                         switch result {
                         case .success(let data):
-                            guard let userData = data as? [String: Any], let fullname = userData["full_name"] as? String else { return }
+                            guard let userData = data as? [String: Any], let fullname = userData[UserProfileKeys.fullName.rawValue] as? String else { return }
                             UserDefaults.standard.set(fullname, forKey: "fullname")
                         case .failure(let error):
                             print(error.localizedDescription)
                         }
                     }
-                    UserDefaults.standard.set(email, forKey: "email")
+                    UserDefaults.standard.set(email, forKey: UserProfileKeys.email.rawValue)
                     self.navigationController?.dismiss(animated: true, completion: nil)
                 } else {
                     let alert = UIAlertController(title: "Log In Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -108,7 +108,7 @@ class LoginVC: UIViewController {
     
     @IBAction func facebookLoginBtnTapped(_ sender: Any) {
         let loginManager = LoginManager()
-        loginManager.logIn(permissions: ["email" , "public_profile"], from: self) { result, error in
+        loginManager.logIn(permissions: [UserProfileKeys.email.rawValue , "public_profile"], from: self) { result, error in
             if let error = error {
                 print(error.localizedDescription)
             } else if let result = result, result.isCancelled {
@@ -123,14 +123,14 @@ class LoginVC: UIViewController {
                         return
                     }
                     
-                    guard let fullname = result["name"] as? String, let email = result["email"] as? String, let picture = result["picture"] as? [String: Any], let data = picture["data"] as? [String: Any], let pictureURL = data["url"] as? String else {
+                    guard let fullname = result["name"] as? String, let email = result[UserProfileKeys.email.rawValue] as? String, let picture = result["picture"] as? [String: Any], let data = picture["data"] as? [String: Any], let pictureURL = data["url"] as? String else {
                         print("Failed to get name and email")
                         return
                     }
                     
                     let userName = fullname.replacingOccurrences(of: " ", with: "").lowercased()
-                    UserDefaults.standard.set(email, forKey: "email")
-                    UserDefaults.standard.set(fullname, forKey: "fullname")
+                    UserDefaults.standard.set(email, forKey: UserProfileKeys.email.rawValue)
+                    UserDefaults.standard.set(fullname, forKey: UserProfileKeys.email.rawValue)
                     DatabaseManager.shared.canCreateUser(with: email) { success in
                         if !success {
                             guard let url = URL(string: pictureURL) else { return }
@@ -186,8 +186,8 @@ class LoginVC: UIViewController {
             let userName = fullName.replacingOccurrences(of: " ", with: "").lowercased()
             
             let googleUser = User(email: email, username: userName, fullname: fullName)
-            UserDefaults.standard.set(email, forKey: "email")
-            UserDefaults.standard.set(fullName, forKey: "fullname")
+            UserDefaults.standard.set(email, forKey: UserProfileKeys.email.rawValue)
+            UserDefaults.standard.set(fullName, forKey: UserProfileKeys.email.rawValue)
             DatabaseManager.shared.canCreateUser(with: email) { success in
                 if !success {
                     DatabaseManager.shared.insertNewUser(with: googleUser) { success in

@@ -42,12 +42,26 @@ class EditProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
         editProfileImage.roundedImage()
     }
     
+    func setupData() {
+        DatabaseManager.shared.getUserProfile { success, userData in
+            if success, let data = userData {
+                self.nameField.text = data[UserProfileKeys.fullName.rawValue]
+                self.usernameField.text = data[UserProfileKeys.userName.rawValue]
+                self.titleField.text = data[UserProfileKeys.bio.rawValue]
+                self.webYTField.text = data[UserProfileKeys.websiteLink.rawValue]
+                self.aboutMeField.text = data[UserProfileKeys.aboutMe.rawValue]
+            }
+            else {
+                self.navigationController?.popViewController(animated: false)
+            }
+        }
+    }
+    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        // api call
-        // but populate date first
         if isDataValid {
             DatabaseManager.shared.updateUserProfile(fullName: fullName, bio: bio, userName: userName, websiteLink: websiteLink, aboutMe: aboutMe) { success in
                 if success {
@@ -59,9 +73,12 @@ class EditProfileVC: UIViewController {
             }
         }
         else {
-            // show alert
             showAlert(message: "please fill all the fields")
         }
+    }
+    
+    var isDataValid: Bool {
+        return !(fullName.isEmpty || userName.isEmpty || bio.isEmpty || aboutMe.isEmpty)
     }
     
     func showAlert(message: String, _ shouldPop: Bool = false) {
@@ -76,10 +93,6 @@ class EditProfileVC: UIViewController {
             }
         }))
         self.present(alert, animated: true, completion: nil)
-    }
-    
-    var isDataValid: Bool {
-        return !(fullName.isEmpty || userName.isEmpty || bio.isEmpty || aboutMe.isEmpty)
     }
     
     @IBAction func backButton(_ sender: UIButton) {
@@ -109,6 +122,7 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
             return
         }
         editProfileImage.image = image
+        // save image in users database
     }
     
 }
