@@ -61,6 +61,9 @@ class RegisterVC: UIViewController {
                     return
                 }
                 
+                UserDefaults.standard.setValue(email, forKey: "email")
+                UserDefaults.standard.setValue(fullName, forKey: "name")
+                
                 DatabaseManager.shared.insertNewUser(with: User(email: email, username: userName, fullname: fullName)) { success in
                     if success {
                         
