@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10F0497275694F100E12D40 /* PhotoViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10F0496275694F100E12D40 /* PhotoViewerVC.swift */; };
+		B10F04992756CB6F00E12D40 /* NewConversationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10F04982756CB6F00E12D40 /* NewConversationCell.swift */; };
 		B132C2C227432EDE00BD7867 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132C2C127432EDE00BD7867 /* HomeVC.swift */; };
 		B132C2C427432EEE00BD7867 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132C2C327432EEE00BD7867 /* SearchVC.swift */; };
 		B132C2C627432F1100BD7867 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B132C2C527432F1100BD7867 /* CameraVC.swift */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		6A8B205FDE955D9FFADDD936 /* Pods-Cravings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.release.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.release.xcconfig"; sourceTree = "<group>"; };
 		A1C5FD667479BABF2D2FDB88 /* Pods-Cravings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.debug.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.debug.xcconfig"; sourceTree = "<group>"; };
+		B10F0496275694F100E12D40 /* PhotoViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerVC.swift; sourceTree = "<group>"; };
+		B10F04982756CB6F00E12D40 /* NewConversationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationCell.swift; sourceTree = "<group>"; };
 		B132C2C127432EDE00BD7867 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		B132C2C327432EEE00BD7867 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		B132C2C527432F1100BD7867 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				B1706398274EE09000A4E7A5 /* NewConversationVC.swift */,
 				D9CFC7FF274D78E400D8A42A /* DetailVC.swift */,
 				D9C116992753F6D500B60B49 /* NewPostVC.swift */,
+				B10F0496275694F100E12D40 /* PhotoViewerVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 				B1A3A896273AF8C4008E1B9E /* LaunchScreen.storyboard */,
 				D99E58632748A61B00600892 /* Assets.xcassets */,
 				B170639E2750428000A4E7A5 /* ChatTVCell.swift */,
+				B10F04982756CB6F00E12D40 /* NewConversationCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1706399274EE09000A4E7A5 /* NewConversationVC.swift in Sources */,
+				B10F04992756CB6F00E12D40 /* NewConversationCell.swift in Sources */,
 				B132C2CA27432F4300BD7867 /* ProfileVC.swift in Sources */,
 				B132C2C827432F3300BD7867 /* ChatVC.swift in Sources */,
 				B1A3A88C273AF8C0008E1B9E /* AppDelegate.swift in Sources */,
@@ -315,6 +322,7 @@
 				D99E5860274840CA00600892 /* EditProfileVC.swift in Sources */,
 				B132C2CE2743361E00BD7867 /* DatabaseManager.swift in Sources */,
 				B132C2CC274335F900BD7867 /* AuthManager.swift in Sources */,
+				B10F0497275694F100E12D40 /* PhotoViewerVC.swift in Sources */,
 				B1706395274D450700A4E7A5 /* Extensions.swift in Sources */,
 				B170639F2750428100A4E7A5 /* ChatTVCell.swift in Sources */,
 				B19B1A9027431C9E000CA953 /* Models.swift in Sources */,
