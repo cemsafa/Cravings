@@ -523,28 +523,17 @@ public class DatabaseManager {
         case failedToFetch
     }
     
-    
-    
-    
     public func updateUserProfile(fullName: String, bio: String, userName: String, websiteLink: String, aboutMe: String, completion: @escaping (Bool) -> Void) {
-        let updateElement = [
+        let updatedElement = [
             UserProfileKeys.userName.rawValue : userName,
             UserProfileKeys.fullName.rawValue : fullName,
             UserProfileKeys.bio.rawValue : bio,
             UserProfileKeys.websiteLink.rawValue : websiteLink,
             UserProfileKeys.aboutMe.rawValue : aboutMe
         ]
-        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
-            let collection = snapshot.value as? [String: [String : String]] ?? [String: [String : String]]()
-            if let key = collection.first(where: { $0.value[UserProfileKeys.email.rawValue] == userEmail })?.key {
-                self.database.child("users").child(key).setValue(updateElement) { error, _ in
-                    guard error == nil else {
-                        completion(false)
-                        return
-                    }
-                    completion(true)
-                }
-            }
+        let update = ["\(userEmail.safeDatabaseKey())/" : updatedElement]
+        self.database.updateChildValues(update) { error, _ in
+            completion(error == nil)
         }
     }
     
@@ -581,9 +570,8 @@ public class DatabaseManager {
 //     }
     
     public func getUserProfile(completion: @escaping (Bool , [String : String]?) -> Void) {
-        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
-            let collection = snapshot.value as? [[String : String]] ?? [[String : String]]()
-            if let value = collection.first(where: { $0[UserProfileKeys.email.rawValue] == userEmail }) {
+        self.database.child("\(userEmail.safeDatabaseKey())/").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [String : String] {
                 completion(true, value)
             }
             else {
@@ -596,20 +584,11 @@ public class DatabaseManager {
 
 let userEmail: String = UserDefaults.standard.value(forKey: "email") as? String ?? ""
 
-public struct User {
-    let email: String
-    let username: String
-    let fullname: String
-    var profilePictureFilename: String {
-        return "\(email.safeDatabaseKey())_profile_picture.png"
-    }
-}
-
 
 enum UserProfileKeys: String {
     case email = "email"
-    case userName = "username"
-    case fullName = "name"
+    case userName = "user_name"
+    case fullName = "full_name"
     case bio = "bio"
     case websiteLink = "website_link"
     case aboutMe = "about_me"
