@@ -533,7 +533,9 @@ public class DatabaseManager {
             UserProfileKeys.aboutMe.rawValue : aboutMe
         ]
         let update = ["\(userEmail.safeDatabaseKey())/" : updatedElement]
-        self.database.updateChildValues(update)
+        self.database.updateChildValues(update) { error, _ in
+            completion(error == nil)
+        }
     }
     
 //    public func updateUserProfilePicture(profilePic: UIImage, completion: @escaping (Bool) -> Void) {
