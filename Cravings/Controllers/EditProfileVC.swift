@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class EditProfileVC: UIViewController {
     
@@ -54,6 +55,16 @@ class EditProfileVC: UIViewController {
                 self.titleField.text = data[UserProfileKeys.bio.rawValue]
                 self.webYTField.text = data[UserProfileKeys.websiteLink.rawValue]
                 self.aboutMeField.text = data[UserProfileKeys.aboutMe.rawValue]
+                StorageManager.shared.getProfilePictureURL { result in
+                    switch result {
+                    case .success(let url):
+                        DispatchQueue.main.async {
+                            self.editProfileImage.sd_setImage(with: url, completed: nil)
+                        }
+                    case .failure(let error):
+                        self.showAlert(message: error.localizedDescription)
+                    }
+                }
             }
             else {
                 self.navigationController?.popViewController(animated: false)
@@ -121,8 +132,15 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-        editProfileImage.image = image
-        // save image in users database
+        
+        StorageManager.shared.uploadProfilePicture(with: image.jpegData(compressionQuality: 1.0)!) { result in
+            switch result {
+            case .success(_):
+                self.editProfileImage.image = image
+            case .failure(let error):
+                self.showAlert(message: "\(error.localizedDescription)")
+            }
+        }
     }
     
 }

@@ -585,6 +585,9 @@ public class DatabaseManager {
 
 let userEmail: String = UserDefaults.standard.value(forKey: "email") as? String ?? ""
 
+var profilePicsPath: String {
+    return "profile_pics/\(userEmail.safeDatabaseKey()).jpg"
+}
 
 enum UserProfileKeys: String {
     case email = "email"
