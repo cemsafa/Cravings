@@ -13,6 +13,7 @@ import AVFoundation
 import UIKit
 import FirebaseStorage
 import MessageKit
+import FirebaseFirestore
 
 public class DatabaseManager {
     
@@ -532,28 +533,26 @@ public class DatabaseManager {
             UserProfileKeys.aboutMe.rawValue : aboutMe
         ]
         let update = ["\(userEmail.safeDatabaseKey())/" : updatedElement]
-        self.database.updateChildValues(update) { error, _ in
-            completion(error == nil)
-        }
+        self.database.updateChildValues(update)
     }
     
-    public func updateUserProfilePicture(profilePic: UIImage, completion: @escaping (Bool) -> Void) {
-        let updateElement = [
-            UserProfileKeys.profilePic.rawValue : ""
-        ]
-        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
-            let collection = snapshot.value as? [String: [String : String]] ?? [String: [String : String]]()
-            if let key = collection.first(where: { $0.value[UserProfileKeys.email.rawValue] == userEmail })?.key {
-                self.database.child("users").child(key).setValue(updateElement) { error, _ in
-                    guard error == nil else {
-                        completion(false)
-                        return
-                    }
-                    completion(true)
-                }
-            }
-        }
-    }
+//    public func updateUserProfilePicture(profilePic: UIImage, completion: @escaping (Bool) -> Void) {
+//        let updateElement = [
+//            UserProfileKeys.profilePic.rawValue : ""
+//        ]
+//        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+//            let collection = snapshot.value as? [String: [String : String]] ?? [String: [String : String]]()
+//            if let key = collection.first(where: { $0.value[UserProfileKeys.email.rawValue] == userEmail })?.key {
+//                self.database.child("users").child(key).setValue(updateElement) { error, _ in
+//                    guard error == nil else {
+//                        completion(false)
+//                        return
+//                    }
+//                    completion(true)
+//                }
+//            }
+//        }
+//    }
     
 //    func uploadProfilePic(completion: @escaping (_ url: String?) -> Void) {
 //        let storageRef = FirebaseStorage.StorageReference.reference().child("myImage.png")
