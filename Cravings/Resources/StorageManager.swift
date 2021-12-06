@@ -14,7 +14,7 @@ final class StorageManager {
     
     private let storage = Storage.storage().reference()
     
-    public typealias UploadPictureCompletion = (Result<Bool, Error>) -> Void
+    public typealias UploadPictureCompletion = (Result<String, Error>) -> Void
     public typealias DownloadPictureCompletion = (Result<URL, Error>) -> Void
     
     public func uploadProfilePicture(with data: Data, completion: @escaping UploadPictureCompletion) {
@@ -24,7 +24,14 @@ final class StorageManager {
                 completion(.failure(StorageErrors.failedToUpload))
                 return
             }
-            completion(.success(true))
+            self.getProfilePictureURL { result in
+                switch result {
+                    case .success(let url):
+                        completion(.success(url.absoluteString))
+                    case .failure(_):
+                        completion(.failure(StorageErrors.failedToUpload))
+                }
+            }
         }
     }
     
