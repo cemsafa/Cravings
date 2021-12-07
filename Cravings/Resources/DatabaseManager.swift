@@ -10,8 +10,10 @@ import FirebaseDatabase
 import CoreMedia
 import RealmSwift
 import AVFoundation
-import MessageKit
 import UIKit
+import FirebaseStorage
+import MessageKit
+import FirebaseFirestore
 
 public class DatabaseManager {
     
@@ -521,4 +523,78 @@ public class DatabaseManager {
     public enum DatabaseErrors: Error {
         case failedToFetch
     }
+    
+    public func updateUserProfile(fullName: String, bio: String, userName: String, websiteLink: String, aboutMe: String, completion: @escaping (Bool) -> Void) {
+        let updatedElement = [
+            UserProfileKeys.userName.rawValue : userName,
+            UserProfileKeys.fullName.rawValue : fullName,
+            UserProfileKeys.bio.rawValue : bio,
+            UserProfileKeys.websiteLink.rawValue : websiteLink,
+            UserProfileKeys.aboutMe.rawValue : aboutMe
+        ]
+        let update = ["\(userEmail.safeDatabaseKey())/" : updatedElement]
+        self.database.updateChildValues(update) { error, _ in
+            completion(error == nil)
+        }
+    }
+    
+//    public func updateUserProfilePicture(profilePic: UIImage, completion: @escaping (Bool) -> Void) {
+//        let updateElement = [
+//            UserProfileKeys.profilePic.rawValue : ""
+//        ]
+//        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+//            let collection = snapshot.value as? [String: [String : String]] ?? [String: [String : String]]()
+//            if let key = collection.first(where: { $0.value[UserProfileKeys.email.rawValue] == userEmail })?.key {
+//                self.database.child("users").child(key).setValue(updateElement) { error, _ in
+//                    guard error == nil else {
+//                        completion(false)
+//                        return
+//                    }
+//                    completion(true)
+//                }
+//            }
+//        }
+//    }
+    
+//    func uploadProfilePic(completion: @escaping (_ url: String?) -> Void) {
+//        let storageRef = FirebaseStorage.StorageReference.reference().child("myImage.png")
+////        if let uploadData = UIImagePNGRepresentation(self.myImageView.image!) {
+////            storageRef.put(uploadData, metadata: nil) { (metadata, error) in
+////                if error != nil {
+////                    print("error")
+////                    completion(nil)
+////                } else {
+////                    completion((metadata?.downloadURL()?.absoluteString)!))
+////                    // your uploaded photo url.
+////                }
+////           }
+//     }
+    
+    public func getUserProfile(completion: @escaping (Bool , [String : String]?) -> Void) {
+        self.database.child("\(userEmail.safeDatabaseKey())/").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [String : String] {
+                completion(true, value)
+            }
+            else {
+                completion(false, nil)
+            }
+        }
+    }
+    
+}
+
+let userEmail: String = UserDefaults.standard.value(forKey: "email") as? String ?? ""
+
+var profilePicsPath: String {
+    return "profile_pics/\(userEmail.safeDatabaseKey()).jpg"
+}
+
+enum UserProfileKeys: String {
+    case email = "email"
+    case userName = "user_name"
+    case fullName = "full_name"
+    case bio = "bio"
+    case websiteLink = "website_link"
+    case aboutMe = "about_me"
+    case profilePic = "profile_pic"
 }

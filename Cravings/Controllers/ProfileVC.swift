@@ -18,23 +18,41 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var followersCountLbl: UILabel!
     
-        var collectionView: UICollectionView?
-        var screenSize: CGRect!
-        var screenWidth: CGFloat!
-        var screenHeight: CGFloat!
+    var collectionView: UICollectionView?
+    var screenSize: CGRect!
+    var screenWidth: CGFloat!
+    var screenHeight: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Edit Profile"
         profileImage.roundedImage()
         
-            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-            let width = UIScreen.main.bounds.width
-            layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-            layout.itemSize = CGSize(width: width / 2, height: width / 2)
-            layout.minimumInteritemSpacing = 0
-            layout.minimumLineSpacing = 0
-            collectionView?.collectionViewLayout = layout
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        layout.itemSize = CGSize(width: width / 2, height: width / 2)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        collectionView?.collectionViewLayout = layout
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getUserData()
+    }
+    
+    func getUserData() {
+        let email = UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String ?? ""
+        DatabaseManager.shared.getData(for: email.safeDatabaseKey()) { result in
+            switch result {
+            case .success(let data):
+                guard let userData = data as? [String: Any], let fullname = userData[UserProfileKeys.fullName.rawValue] as? String else { return }
+                UserDefaults.standard.set(fullname, forKey: "fullname")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {
@@ -61,6 +79,8 @@ class ProfileVC: UIViewController {
     
     @IBAction func chatBtnPressed(_ sender: UIButton) {
         
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "ChatVC") as! ChatVC
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func followBtnPressed(_ sender: UIButton) {
@@ -72,7 +92,7 @@ class ProfileVC: UIViewController {
 extension ProfileVC : UICollectionViewDelegateFlowLayout{
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        return UIEdgeInsets.zero
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -87,5 +107,4 @@ extension ProfileVC : UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
-    
 }
