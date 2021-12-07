@@ -42,7 +42,6 @@ class CameraVC: UIViewController {
     }
     
     var cellSize: CGSize {
-        print("\(cellWidth) \(cellHeight)")
         return CGSize(width: cellWidth, height: cellHeight)
     }
     

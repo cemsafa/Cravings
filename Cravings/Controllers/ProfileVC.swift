@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 import GoogleSignIn
+import JGProgressHUD
 
 class ProfileVC: UIViewController {
     
@@ -26,6 +27,8 @@ class ProfileVC: UIViewController {
     var screenSize: CGRect!
     var screenWidth: CGFloat!
     var screenHeight: CGFloat!
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     var email: String = userEmail {
         didSet {
@@ -58,6 +61,7 @@ class ProfileVC: UIViewController {
     }
     
     func setUpUserData() {
+        spinner.show(in: view)
         DatabaseManager.shared.getUserProfile(with: userEmail, completion: { success, userData in
             if success, let data = userData {
                 self.nameLbl.text = data[UserProfileKeys.fullName.rawValue]
@@ -75,6 +79,9 @@ class ProfileVC: UIViewController {
                     }
                 }
             }
+            DispatchQueue.main.async {
+                self.spinner.dismiss()
+            }
         })
         getUserPosts()
     }
@@ -86,7 +93,7 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {
-        UserDefaults.standard.setValue(nil, forKey: "email")
+        UserDefaults.standard.setValue(nil, forKey: UserProfileKeys.email.rawValue)
         UserDefaults.standard.setValue(nil, forKey: "name")
         GIDSignIn.sharedInstance.signOut()
         FBSDKLoginKit.LoginManager().logOut()

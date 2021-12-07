@@ -85,6 +85,7 @@ class LoginVC: UIViewController {
             DispatchQueue.main.async {
                 self.spinner.dismiss()
                 if success {
+                    UserDefaults.standard.set(email, forKey: UserProfileKeys.email.rawValue)
                     let safeEmail = email.safeDatabaseKey()
                     DatabaseManager.shared.getData(for: safeEmail) { result in
                         switch result {
@@ -95,7 +96,6 @@ class LoginVC: UIViewController {
                             print(error.localizedDescription)
                         }
                     }
-                    UserDefaults.standard.set(email, forKey: UserProfileKeys.email.rawValue)
                     self.navigationController?.dismiss(animated: true, completion: nil)
                 } else {
                     let alert = UIAlertController(title: "Log In Error", message: error?.localizedDescription, preferredStyle: .alert)

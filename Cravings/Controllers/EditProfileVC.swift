@@ -61,8 +61,8 @@ class EditProfileVC: UIViewController {
                         DispatchQueue.main.async {
                             self.editProfileImage.sd_setImage(with: url, completed: nil)
                         }
-                    case .failure(let error):
-                        self.showAlert(message: error.localizedDescription)
+                    case .failure(_):
+                        break
                     }
                 }
             }

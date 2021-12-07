@@ -624,7 +624,9 @@ public class DatabaseManager {
     
 }
 
-let userEmail: String = UserDefaults.standard.value(forKey: "email") as? String ?? ""
+var userEmail: String {
+    return UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String ?? ""
+}
 
 var profilePicsPath: String {
     return "profile_pics/\(userEmail.safeDatabaseKey()).jpg"
