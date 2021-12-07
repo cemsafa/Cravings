@@ -38,6 +38,8 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {
+        UserDefaults.standard.setValue(nil, forKey: "email")
+        UserDefaults.standard.setValue(nil, forKey: "name")
         GIDSignIn.sharedInstance.signOut()
         FBSDKLoginKit.LoginManager().logOut()
         AuthManager.shared.logOut { success in
