@@ -526,16 +526,21 @@ public class DatabaseManager {
     }
     
     public func updateUserProfile(fullName: String, bio: String, userName: String, websiteLink: String, aboutMe: String, completion: @escaping (Bool) -> Void) {
-        let updatedElement = [
-            UserProfileKeys.userName.rawValue : userName,
-            UserProfileKeys.fullName.rawValue : fullName,
-            UserProfileKeys.bio.rawValue : bio,
-            UserProfileKeys.websiteLink.rawValue : websiteLink,
-            UserProfileKeys.aboutMe.rawValue : aboutMe
-        ]
-        let update = ["\(userEmail.safeDatabaseKey())/" : updatedElement]
-        self.database.updateChildValues(update) { error, _ in
-            completion(error == nil)
+        self.database.child("\(userEmail.safeDatabaseKey())/").observeSingleEvent(of: .value) { snapshot in
+            if var value = snapshot.value as? [String : Any] {
+                value[UserProfileKeys.userName.rawValue] = userName
+                value[UserProfileKeys.fullName.rawValue] = fullName
+                value[UserProfileKeys.bio.rawValue] = bio
+                value[UserProfileKeys.websiteLink.rawValue] = websiteLink
+                value[UserProfileKeys.aboutMe.rawValue] = aboutMe
+                let update = ["\(userEmail.safeDatabaseKey())/" : value]
+                self.database.updateChildValues(update) { error, _ in
+                    completion(error == nil)
+                }
+            }
+            else {
+                completion(false)
+            }
         }
     }
     
