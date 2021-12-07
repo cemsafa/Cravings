@@ -92,9 +92,9 @@ class ProfileVC: UIViewController {
     }
     
     func getUserPosts() {
-        DatabaseManager.shared.getUserPosts { posts in
+        DatabaseManager.shared.getUserPosts(email: self.email, completion: { posts in
             self.posts = posts
-        }
+        })
     }
     
     @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {

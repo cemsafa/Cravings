@@ -566,7 +566,7 @@ public class DatabaseManager {
             PostKeys.time.rawValue : post.time
         ] as [String : Any]
         
-        self.database.child(userPostsPath).observeSingleEvent(of: .value) { snapshot in
+        self.database.child(loggedInUserPostsPath).observeSingleEvent(of: .value) { snapshot in
             if var collection = snapshot.value as? [[String: Any]] {
                 collection.append(post)
                 self.uploadPostWithCollection(collection: collection) { success in
@@ -592,7 +592,7 @@ public class DatabaseManager {
     }
     
     private func uploadPostWithCollection(collection: [[String: Any]], completion: @escaping (Bool) -> Void) {
-        self.database.child(userPostsPath).setValue(collection) { error, _ in
+        self.database.child(loggedInUserPostsPath).setValue(collection) { error, _ in
             guard error == nil else {
                 completion(false)
                 return
@@ -601,8 +601,8 @@ public class DatabaseManager {
         }
     }
     
-    public func getUserPosts(completion: @escaping ([Post]) -> Void) {
-        self.database.child(userPostsPath).observeSingleEvent(of: .value) { snapshot in
+    public func getUserPosts(email: String, completion: @escaping ([Post]) -> Void) {
+            self.database.child(postsPath(email: email)).observeSingleEvent(of: .value) { snapshot in
             if let collection = snapshot.value as? [[String: Any]] {
                 var posts = [Post]()
                 for item in collection {
@@ -613,6 +613,10 @@ public class DatabaseManager {
                 completion([Post]())
             }
         }
+    }
+    
+    private func postsPath(email: String) -> String {
+        return "user_posts/\(email.safeDatabaseKey())"
     }
     
 }
@@ -644,7 +648,7 @@ enum PostKeys: String {
     case time = "time"
 }
 
-var userPostsPath: String {
+var loggedInUserPostsPath: String {
     return "user_posts/\(userEmail.safeDatabaseKey())"
 }
 
