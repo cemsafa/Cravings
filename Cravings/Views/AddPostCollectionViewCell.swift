@@ -2,11 +2,12 @@
 //  AddPostCollectionViewCell.swift
 //  Cravings
 //
-//  Created by Janakiram Gupta on 25/11/21.
+//  Created by Janakiram Gupta on 29/11/21.
 //
 
 import UIKit
 import AVKit
+import SDWebImage
 
 class PlayerView: UIView {
     
@@ -40,6 +41,14 @@ class AddPostCollectionViewCell: UICollectionViewCell {
             postImageView.isHidden = false
             playerView.isHidden = true
             postImageView.image = image
+        }
+    }
+    
+    var imageURL: String? {
+        didSet {
+            postImageView.isHidden = false
+            playerView.isHidden = true
+            self.postImageView.sd_setImage(with: URL(string: imageURL ?? ""), completed: nil)
         }
     }
     

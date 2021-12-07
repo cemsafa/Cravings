@@ -48,7 +48,7 @@ class EditProfileVC: UIViewController {
     }
     
     func setupData() {
-        DatabaseManager.shared.getUserProfile { success, userData in
+        DatabaseManager.shared.getLoggedInUserProfile { success, userData in
             if success, let data = userData {
                 self.nameField.text = data[UserProfileKeys.fullName.rawValue]
                 self.usernameField.text = data[UserProfileKeys.userName.rawValue]
@@ -109,7 +109,6 @@ class EditProfileVC: UIViewController {
     @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-
    
     @IBAction func editPhotoLblTapped (_ sender: UIButton) {
         picker.allowsEditing = true
@@ -133,7 +132,6 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-        editProfileImage.image = image
         
         StorageManager.shared.uploadProfilePicture(with: image.jpegData(compressionQuality: 1.0)!) { result in
             switch result {

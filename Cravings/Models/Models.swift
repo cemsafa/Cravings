@@ -54,3 +54,34 @@ public struct SearchResult {
     public let name: String
     public let email: String
 }
+
+public struct Post {
+    public var usersTagged: [String] = [String]()
+    public var media: [String]
+    public var likedUsers: [String] = [String]()
+//    public var comments: [String] = [String]()
+    public var caption: String = ""
+    public var time: Double
+    
+    static func postDataWith(data: [String : Any]) -> Post {
+        guard let mediaUrls = data[PostKeys.media.rawValue] as? [String], let time = data[PostKeys.time.rawValue] as? Double else {
+            return Post(media: [String](), time: 0)
+        }
+        var post = Post(media: mediaUrls, time: time)
+        post.caption = data[PostKeys.caption.rawValue] as? String ?? ""
+        post.likedUsers = data[PostKeys.likedUsers.rawValue] as? [String] ?? [String]()
+        post.usersTagged = data[PostKeys.usersTagged.rawValue] as? [String] ?? [String]()
+        return post
+    }
+    
+}
+
+public struct PostMedia {
+    public let mediaType: MediaType
+    public let data: Data
+}
+
+public enum MediaType {
+    case photo
+    case video
+}
