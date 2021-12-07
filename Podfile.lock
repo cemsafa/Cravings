@@ -349,14 +349,14 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
-  - FBAEMKit (12.1.0):
-    - FBSDKCoreKit_Basics (= 12.1.0)
-  - FBSDKCoreKit (12.1.0):
-    - FBAEMKit (= 12.1.0)
-    - FBSDKCoreKit_Basics (= 12.1.0)
-  - FBSDKCoreKit_Basics (12.1.0)
-  - FBSDKLoginKit (12.1.0):
-    - FBSDKCoreKit (= 12.1.0)
+  - FBAEMKit (12.2.0):
+    - FBSDKCoreKit_Basics (= 12.2.0)
+  - FBSDKCoreKit (12.2.0):
+    - FBAEMKit (= 12.2.0)
+    - FBSDKCoreKit_Basics (= 12.2.0)
+  - FBSDKCoreKit_Basics (12.2.0)
+  - FBSDKLoginKit (12.2.0):
+    - FBSDKCoreKit (= 12.2.0)
   - Firebase/Analytics (8.10.0):
     - Firebase/Core
   - Firebase/Auth (8.10.0):
@@ -442,6 +442,7 @@ PODS:
   - FirebaseStorage (8.10.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
+  - Fuzzywuzzy_swift (0.0.2)
   - GoogleAppMeasurement (8.10.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.6)
@@ -553,6 +554,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Firestore
   - Firebase/Storage
+  - Fuzzywuzzy_swift (from `https://github.com/lxian/Fuzzywuzzy_swift.git`)
   - GoogleSignIn
   - JGProgressHUD
   - MessageKit
@@ -600,14 +602,23 @@ SPEC REPOS:
     - SteviaLayout
     - YPImagePicker
 
+EXTERNAL SOURCES:
+  Fuzzywuzzy_swift:
+    :git: https://github.com/lxian/Fuzzywuzzy_swift.git
+
+CHECKOUT OPTIONS:
+  Fuzzywuzzy_swift:
+    :commit: cb371fb2a0d4b0ffb1d0c16f17933405195f122d
+    :git: https://github.com/lxian/Fuzzywuzzy_swift.git
+
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
-  FBAEMKit: 56c0bb9b42e3747cd82b67934f0c2b19325382ea
-  FBSDKCoreKit: 75368765d9c2303073145a7925dfaa9d60bcd77b
-  FBSDKCoreKit_Basics: 39865aff97e5f6951a78fb3e89dc4460e35e1895
-  FBSDKLoginKit: e993f97c7cc794c5da4056d8aec3c3d66033a727
+  FBAEMKit: 5fbd0e8bd86fbb2f977fcf39f8a62569b52d1df3
+  FBSDKCoreKit: 183e00947076af95435ac7ff622ea68c50860f80
+  FBSDKCoreKit_Basics: 63539ccd3288849598d4936abe866f9b85320f51
+  FBSDKLoginKit: d9456b3237eb76b9348f8d8fd307df080a1dbe43
   Firebase: 44213362f1dcc52555b935dc925ed35ac55f1b20
   FirebaseAnalytics: 319c9b3b1bdd400d60e2f415dff0c5f6959e6760
   FirebaseAuth: 59a2d2b933b5b79e18fb1e6ad230c6abdaa73d26
@@ -618,6 +629,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 0e7321a508cc9de54316ec45400caba6b5719beb
   FirebaseInstallations: 830327b45345ffc859eaa9c17bcd5ae893fd5425
   FirebaseStorage: 815410224b548172c578f02554a86bbc8f817f50
+  Fuzzywuzzy_swift: a2f9a77bb6d3f1d99dc6364eda541254124e393d
   GoogleAppMeasurement: a3311dbcf3ea651e5a070fe8559b57c174ada081
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleSignIn: fd381840dbe7c1137aa6dc30849a5c3e070c034a
@@ -639,6 +651,6 @@ SPEC CHECKSUMS:
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   YPImagePicker: 1463a19a36244e209dcb03c30e63559c5afa9602
 
-PODFILE CHECKSUM: 69d73853a33d1daa5f34e140c539b5ff60bfa5f8
+PODFILE CHECKSUM: 19ba80a64e0a7f40d3a3725b82ceafb4d158934b
 
 COCOAPODS: 1.11.2

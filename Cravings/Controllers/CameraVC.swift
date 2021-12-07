@@ -135,12 +135,14 @@ class CameraVC: UIViewController {
         let post = Post(usersTagged: [String](), media: [String](), likedUsers: [String](), caption: captionTextField.text ?? "", time: timeStamp)
         StorageManager.shared.addPost(with: post, media: postMedia) { result in
             switch result {
-                case .success(_):
-                    self.spinner.dismiss()
+                case .success(_):       
                     self.reloadUI()
                     self.tabBarController?.selectedIndex = 0
                 case .failure(let error):
                     self.showAlert(message: error.localizedDescription)
+            }
+            DispatchQueue.main.async {
+                self.spinner.dismiss()
             }
         }
     }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F36507F275FB2DF00FAF1AF /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F36507D275FB2DF00FAF1AF /* SearchTableViewCell.swift */; };
+		4F365080275FB2DF00FAF1AF /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F36507E275FB2DF00FAF1AF /* SearchTableViewCell.xib */; };
 		4F63AC2B27510B3900A2196D /* AddPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F63AC2927510B3900A2196D /* AddPostCollectionViewCell.swift */; };
 		4F63AC2C27510B3900A2196D /* AddPostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F63AC2A27510B3900A2196D /* AddPostCollectionViewCell.xib */; };
 		B10F0497275694F100E12D40 /* PhotoViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10F0496275694F100E12D40 /* PhotoViewerVC.swift */; };
@@ -42,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F36507D275FB2DF00FAF1AF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		4F36507E275FB2DF00FAF1AF /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		4F63AC2927510B3900A2196D /* AddPostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F63AC2A27510B3900A2196D /* AddPostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPostCollectionViewCell.xib; sourceTree = "<group>"; };
 		6A8B205FDE955D9FFADDD936 /* Pods-Cravings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cravings.release.xcconfig"; path = "Target Support Files/Pods-Cravings/Pods-Cravings.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 				4F63AC2927510B3900A2196D /* AddPostCollectionViewCell.swift */,
 				4F63AC2A27510B3900A2196D /* AddPostCollectionViewCell.xib */,
 				B10F04982756CB6F00E12D40 /* NewConversationCell.swift */,
+				4F36507D275FB2DF00FAF1AF /* SearchTableViewCell.swift */,
+				4F36507E275FB2DF00FAF1AF /* SearchTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 				D9518BED27442DC0001C1AE4 /* (null) in Resources */,
 				B1A3A898273AF8C4008E1B9E /* LaunchScreen.storyboard in Resources */,
 				B1A3A893273AF8C0008E1B9E /* Main.storyboard in Resources */,
+				4F365080275FB2DF00FAF1AF /* SearchTableViewCell.xib in Resources */,
 				D93C6FA22746FFED0027234F /* GoogleService-Info.plist in Resources */,
 				D99E58642748A61F00600892 /* Assets.xcassets in Resources */,
 			);
@@ -331,6 +338,7 @@
 				B132C2CE2743361E00BD7867 /* DatabaseManager.swift in Sources */,
 				B132C2CC274335F900BD7867 /* AuthManager.swift in Sources */,
 				B10F0497275694F100E12D40 /* PhotoViewerVC.swift in Sources */,
+				4F36507F275FB2DF00FAF1AF /* SearchTableViewCell.swift in Sources */,
 				B1706395274D450700A4E7A5 /* Extensions.swift in Sources */,
 				B170639F2750428100A4E7A5 /* ChatTVCell.swift in Sources */,
 				B19B1A9027431C9E000CA953 /* Models.swift in Sources */,
