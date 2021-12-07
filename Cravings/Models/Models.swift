@@ -76,6 +76,25 @@ public struct Post {
     
 }
 
+public struct UserProfile {
+    var userName: String
+    var fullName: String
+    var websiteLink: String = ""
+    var aboutMe: String = ""
+    var bio: String = ""
+
+    static func userProfileWith(data: [String : Any]) -> UserProfile {
+        guard let fullName = data[UserProfileKeys.fullName.rawValue] as? String, let userName = data[UserProfileKeys.userName.rawValue] as? String else {
+            return UserProfile.init(userName: "", fullName: "")
+        }
+        var userProfile = UserProfile.init(userName: userName, fullName: fullName)
+        userProfile.websiteLink = data[UserProfileKeys.websiteLink.rawValue] as? String ?? ""
+        userProfile.bio = data[UserProfileKeys.bio.rawValue] as? String ?? ""
+        userProfile.aboutMe = data[UserProfileKeys.aboutMe.rawValue] as? String ?? ""
+        return userProfile
+    }
+}
+
 public struct PostMedia {
     public let mediaType: MediaType
     public let data: Data

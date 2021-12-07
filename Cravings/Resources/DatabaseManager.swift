@@ -539,21 +539,14 @@ public class DatabaseManager {
         }
     }
     
-    public func getLoggedInUserProfile(completion: @escaping (Bool , [String : String]?) -> Void) {
-        self.database.child("\(userEmail.safeDatabaseKey())/").observeSingleEvent(of: .value) { snapshot in
-            if let value = snapshot.value as? [String : String] {
-                completion(true, value)
-            }
-            else {
-                completion(false, nil)
-            }
-        }
+    public func getLoggedInUserProfile(completion: @escaping (Bool , UserProfile?) -> Void) {
+        self.getUserProfile(with: userEmail, completion: completion)
     }
     
-    public func getUserProfile(with email: String, completion: @escaping (Bool , [String : String]?) -> Void) {
-        self.database.child("\(email.safeDatabaseKey())/").observeSingleEvent(of: .value) { snapshot in
-            if let value = snapshot.value as? [String : String] {
-                completion(true, value)
+    public func getUserProfile(with email: String, completion: @escaping (Bool , UserProfile?) -> Void) {
+            self.database.child("\(email.safeDatabaseKey())/").observeSingleEvent(of: .value) { snapshot in
+                if let value = snapshot.value as? [String : Any] {
+                    completion(true, UserProfile.userProfileWith(data: value))
             }
             else {
                 completion(false, nil)

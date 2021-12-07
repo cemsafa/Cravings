@@ -58,10 +58,8 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchTableCell", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]
                 
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

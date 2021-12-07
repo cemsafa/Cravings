@@ -452,16 +452,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l7i-qb-KRq">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchTableCell" id="jmf-61-J4E">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jmf-61-J4E" id="8tz-45-Hag">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uj7-9x-kTj"/>
@@ -928,7 +918,7 @@
         <!--ProfileVC-->
         <scene sceneID="49O-uY-boY">
             <objects>
-                <viewController id="URc-LV-o7D" customClass="ProfileVC" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileVC" id="URc-LV-o7D" customClass="ProfileVC" customModule="Cravings" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9O9-gn-maU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -965,10 +955,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yM-51-HfI">
-                                <rect key="frame" x="190" y="253" width="190" height="35.5"/>
+                                <rect key="frame" x="190" y="226" width="190" height="62.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SEv-rH-cHY">
-                                        <rect key="frame" x="0.0" y="0.0" width="95" height="35.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="95" height="62.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="ellipsis.bubble" catalog="system" title=" Chat ">
                                             <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="18"/>
@@ -979,7 +969,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOb-2m-iIe">
-                                        <rect key="frame" x="95" y="0.0" width="95" height="35.5"/>
+                                        <rect key="frame" x="95" y="0.0" width="95" height="62.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="person.badge.plus" catalog="system" title=" Follow">
                                             <fontDescription key="titleFontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
@@ -992,12 +982,12 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="tB2-0b-Ktx">
-                                <rect key="frame" x="200" y="155" width="63" height="85"/>
+                                <rect key="frame" x="200" y="128" width="63" height="85"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Ihh-iT-WjB">
                                         <rect key="frame" x="0.0" y="0.0" width="63" height="55"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSq-8k-dMM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="753" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSq-8k-dMM">
                                                 <rect key="frame" x="0.0" y="0.0" width="63" height="29"/>
                                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="24"/>
                                                 <color key="textColor" red="0.16470587249999999" green="0.16470587249999999" blue="0.16470587249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1088,7 +1078,7 @@
                             <constraint firstItem="zca-GO-nl1" firstAttribute="leading" secondItem="O1Z-D9-Ipu" secondAttribute="leading" id="5m1-oC-CVS"/>
                             <constraint firstItem="xkK-R5-cVo" firstAttribute="leading" secondItem="O1Z-D9-Ipu" secondAttribute="leading" constant="45" id="CqL-br-0RE"/>
                             <constraint firstItem="xkK-R5-cVo" firstAttribute="top" secondItem="O1Z-D9-Ipu" secondAttribute="top" constant="1" id="KfM-yh-FdX"/>
-                            <constraint firstItem="tB2-0b-Ktx" firstAttribute="top" secondItem="O1Z-D9-Ipu" secondAttribute="top" constant="67" id="L76-Eo-7oR"/>
+                            <constraint firstItem="tB2-0b-Ktx" firstAttribute="top" secondItem="O1Z-D9-Ipu" secondAttribute="top" constant="40" id="L76-Eo-7oR"/>
                             <constraint firstItem="N9f-c7-6ko" firstAttribute="top" secondItem="xkK-R5-cVo" secondAttribute="bottom" constant="15.5" id="MJm-lD-aRn"/>
                             <constraint firstItem="6yM-51-HfI" firstAttribute="leading" secondItem="xkK-R5-cVo" secondAttribute="trailing" constant="15" id="YEY-fV-Vqs"/>
                             <constraint firstItem="tB2-0b-Ktx" firstAttribute="leading" secondItem="xkK-R5-cVo" secondAttribute="trailing" constant="25" id="frG-Sy-lYP"/>

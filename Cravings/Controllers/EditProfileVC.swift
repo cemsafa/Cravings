@@ -50,11 +50,11 @@ class EditProfileVC: UIViewController {
     func setupData() {
         DatabaseManager.shared.getLoggedInUserProfile { success, userData in
             if success, let data = userData {
-                self.nameField.text = data[UserProfileKeys.fullName.rawValue]
-                self.usernameField.text = data[UserProfileKeys.userName.rawValue]
-                self.titleField.text = data[UserProfileKeys.bio.rawValue]
-                self.webYTField.text = data[UserProfileKeys.websiteLink.rawValue]
-                self.aboutMeField.text = data[UserProfileKeys.aboutMe.rawValue]
+                self.nameField.text = data.fullName
+                self.usernameField.text = data.userName
+                self.titleField.text = data.bio
+                self.webYTField.text = data.websiteLink
+                self.aboutMeField.text = data.aboutMe
                 StorageManager.shared.getProfilePictureURL { result in
                     switch result {
                     case .success(let url):

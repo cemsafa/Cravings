@@ -30,18 +30,16 @@ class ProfileVC: UIViewController {
     
     private let spinner = JGProgressHUD(style: .dark)
     
-    var email: String = userEmail {
-        didSet {
-            chatButton.isHidden = email == userEmail
-            followButton.isHidden = email == userEmail
-            editButton.isHidden = email != userEmail
-        }
-    }
+    var email: String = userEmail
     
     var posts: [Post] = [Post]() {
         didSet {
             self.collectionView.reloadData()
         }
+    }
+    
+    var isLoggedInUser: Bool {
+        return userEmail == email
     }
     
     var followers = [String]()
@@ -57,17 +55,23 @@ class ProfileVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if email.isEmpty {
+            email = userEmail
+        }
         setUpUserData()
     }
     
     func setUpUserData() {
         spinner.show(in: view)
-        DatabaseManager.shared.getUserProfile(with: userEmail, completion: { success, userData in
+        DatabaseManager.shared.getUserProfile(with: email, completion: { success, userData in
             if success, let data = userData {
-                self.nameLbl.text = data[UserProfileKeys.fullName.rawValue]
-                self.titleLbl.text = data[UserProfileKeys.bio.rawValue]
-                self.aboutMeLbl.text = data[UserProfileKeys.aboutMe.rawValue]
+                self.nameLbl.text = data.fullName
+                self.titleLbl.text = data.bio
+                self.aboutMeLbl.text = data.aboutMe
                 self.followersLbl.text = "\(self.followers.count) followers"
+                self.chatButton.isHidden = self.isLoggedInUser
+                self.followButton.isHidden = self.isLoggedInUser
+                self.editButton.isHidden = !self.isLoggedInUser
                 StorageManager.shared.getProfilePictureURL { result in
                     switch result {
                     case .success(let url):
@@ -75,6 +79,7 @@ class ProfileVC: UIViewController {
                             self.profileImage.sd_setImage(with: url, completed: nil)
                         }
                     case .failure(_):
+                        self.profileImage.image = nil
                         break
                     }
                 }
@@ -97,6 +102,7 @@ class ProfileVC: UIViewController {
         UserDefaults.standard.setValue(nil, forKey: "name")
         GIDSignIn.sharedInstance.signOut()
         FBSDKLoginKit.LoginManager().logOut()
+        email = ""
         AuthManager.shared.logOut { success in
             if success {
                 guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginVC") else {
@@ -111,6 +117,7 @@ class ProfileVC: UIViewController {
     
     @IBAction func editProfileBtnPressed(_ sender: UIButton) {
         let vc = mainStoryboard.instantiateViewController(withIdentifier: "EditProfileVC") as! EditProfileVC
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
