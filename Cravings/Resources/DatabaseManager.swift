@@ -526,20 +526,37 @@ public class DatabaseManager {
     }
     
     public func updateUserProfile(fullName: String, bio: String, userName: String, websiteLink: String, aboutMe: String, completion: @escaping (Bool) -> Void) {
-        self.database.child("\(userEmail.safeDatabaseKey())/").observeSingleEvent(of: .value) { snapshot in
-            if var value = snapshot.value as? [String : Any] {
-                value[UserProfileKeys.userName.rawValue] = userName
-                value[UserProfileKeys.fullName.rawValue] = fullName
-                value[UserProfileKeys.bio.rawValue] = bio
-                value[UserProfileKeys.websiteLink.rawValue] = websiteLink
-                value[UserProfileKeys.aboutMe.rawValue] = aboutMe
-                let update = ["\(userEmail.safeDatabaseKey())/" : value]
-                self.database.updateChildValues(update) { error, _ in
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [[String : String]], let index = value.firstIndex(where: { $0[UserProfileKeys.email.rawValue] == userEmail }) {
+                var userProfile = value[index]
+                userProfile[UserProfileKeys.userName.rawValue] = userName
+                userProfile[UserProfileKeys.fullName.rawValue] = fullName
+                userProfile[UserProfileKeys.bio.rawValue] = bio
+                userProfile[UserProfileKeys.websiteLink.rawValue] = websiteLink
+                userProfile[UserProfileKeys.aboutMe.rawValue] = aboutMe
+                self.database.child("users/\(index)").updateChildValues(userProfile) { error, _ in
                     completion(error == nil)
                 }
             }
-            else {
-                completion(false)
+        }
+    }
+    
+    public func updateUserProfilePicture(profilePicURL: String, completion: @escaping (Bool) -> Void) {
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [[String : String]], let index = value.firstIndex(where: { $0[UserProfileKeys.email.rawValue] == userEmail }) {
+                var userProfile = value[index]
+                userProfile[UserProfileKeys.profilePic.rawValue] = profilePicURL
+                self.database.child("users/\(index)").updateChildValues(userProfile) { error, _ in
+                    completion(error != nil)
+                }
+            }
+        }
+    }
+    
+    public func getUserProfilePicture(email: String, completion: @escaping (String) -> Void) {
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [[String : String]], let userProfileData = value.first(where: { $0[UserProfileKeys.email.rawValue] == email }), let profilePicURL = userProfileData[UserProfileKeys.profilePic.rawValue]  {
+                completion(profilePicURL)
             }
         }
     }
@@ -549,9 +566,9 @@ public class DatabaseManager {
     }
     
     public func getUserProfile(with email: String, completion: @escaping (Bool , UserProfile?) -> Void) {
-            self.database.child("\(email.safeDatabaseKey())/").observeSingleEvent(of: .value) { snapshot in
-                if let value = snapshot.value as? [String : Any] {
-                    completion(true, UserProfile.userProfileWith(data: value))
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [[String : String]], let userProfileData = value.first(where: { $0[UserProfileKeys.email.rawValue] == email }) {
+                completion(true, UserProfile.userProfileWith(data: userProfileData))
             }
             else {
                 completion(false, nil)
@@ -636,8 +653,8 @@ var profilePicsPath: String {
 
 enum UserProfileKeys: String {
     case email = "email"
-    case userName = "user_name"
-    case fullName = "full_name"
+    case userName = "username"
+    case fullName = "name"
     case bio = "bio"
     case websiteLink = "website_link"
     case aboutMe = "about_me"

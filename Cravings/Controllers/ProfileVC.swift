@@ -72,15 +72,15 @@ class ProfileVC: UIViewController {
                 self.chatButton.isHidden = self.isLoggedInUser
                 self.followButton.isHidden = self.isLoggedInUser
                 self.editButton.isHidden = !self.isLoggedInUser
-                StorageManager.shared.getProfilePictureURL { result in
-                    switch result {
-                    case .success(let url):
-                        DispatchQueue.main.async {
-                            self.profileImage.sd_setImage(with: url, completed: nil)
-                        }
-                    case .failure(_):
+                
+                DatabaseManager.shared.getUserProfilePicture(email: self.email) { url in
+                    if url.isEmpty {
                         self.profileImage.image = nil
-                        break
+                    }
+                    else {
+                        DispatchQueue.main.async {
+                            self.profileImage.sd_setImage(with: URL(string: url), completed: nil)
+                        }
                     }
                 }
             }

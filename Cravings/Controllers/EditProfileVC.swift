@@ -4,9 +4,9 @@
 //
 //  Created by Ma. Kristina Ginga on 2021-11-19.
 //
-
 import UIKit
 import SDWebImage
+import JGProgressHUD
 
 class EditProfileVC: UIViewController {
     
@@ -41,13 +41,28 @@ class EditProfileVC: UIViewController {
     
     let picker = UIImagePickerController()
     
+    private let spinner = JGProgressHUD(style: .dark)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
         editProfileImage.roundedImage()
     }
     
+    func showSpinner() {
+        DispatchQueue.main.async {
+            self.spinner.show(in: self.view)
+        }
+    }
+    
+    func hideSpinner() {
+        DispatchQueue.main.async {
+            self.spinner.dismiss()
+        }
+    }
+    
     func setupData() {
+        self.showSpinner()
         DatabaseManager.shared.getLoggedInUserProfile { success, userData in
             if success, let data = userData {
                 self.nameField.text = data.fullName
@@ -64,6 +79,7 @@ class EditProfileVC: UIViewController {
                     case .failure(_):
                         break
                     }
+                    self.hideSpinner()
                 }
             }
             else {
@@ -74,6 +90,7 @@ class EditProfileVC: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         if isDataValid {
+            self.showSpinner()
             DatabaseManager.shared.updateUserProfile(fullName: fullName, bio: bio, userName: userName, websiteLink: websiteLink, aboutMe: aboutMe) { success in
                 if success {
                     self.showAlert(message: "Profile Updated", true)
@@ -81,6 +98,7 @@ class EditProfileVC: UIViewController {
                 else {
                     self.showAlert(message: "Error in saving data")
                 }
+                self.hideSpinner()
             }
         }
         else {
@@ -132,14 +150,23 @@ extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationController
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
-        
+        self.showSpinner()
         StorageManager.shared.uploadProfilePicture(with: image.jpegData(compressionQuality: 1.0)!) { result in
             switch result {
-            case .success(_):
-                self.editProfileImage.image = image
+            case .success(let url):
+                DatabaseManager.shared.updateUserProfilePicture(profilePicURL: url) { success in
+                    if success {
+                        
+                        self.editProfileImage.image = image
+                    }
+                    else {
+                        self.showAlert(message: "Upload failed")
+                    }
+                }
             case .failure(let error):
                 self.showAlert(message: "\(error.localizedDescription)")
             }
+            self.hideSpinner()
         }
     }
     
