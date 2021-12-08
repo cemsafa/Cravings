@@ -88,7 +88,7 @@ public class DatabaseManager {
     }
     
     public func createNewConversation(with otherUserEmail: String, firstMessage: Message, name: String, completion: @escaping (Bool) -> Void) {
-        guard let email = UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String, let fullname = UserDefaults.standard.value(forKey: "fullname") as? String else {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String, let fullname = UserDefaults.standard.value(forKey: "fullname") as? String else {
             return
         }
         let currentEmail = email.safeDatabaseKey()
@@ -235,7 +235,7 @@ public class DatabaseManager {
     }
     
     public func sendMessage(to conversation: String, otherUserEmail: String, name: String, newMessage: Message, completion: @escaping (Bool) -> Void) {
-        guard let email = UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String else {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             completion(false)
             return
         }
@@ -274,7 +274,7 @@ public class DatabaseManager {
             case .custom(_):
                 break
             }
-            guard let email = UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String else {
+            guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
                 completion(false)
                 return
             }
@@ -425,7 +425,7 @@ public class DatabaseManager {
         case .custom(_):
             break
         }
-        guard let email = UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String else {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             completion(false)
             return
         }
@@ -464,7 +464,7 @@ public class DatabaseManager {
     }
     
     public func deleteConversation(with conversationId: String, completion: @escaping (Bool) -> Void) {
-        guard let email = UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String else {
+        guard let email = UserDefaults.standard.value(forKey: "email") as? String else {
             completion(false)
             return
         }
@@ -493,7 +493,7 @@ public class DatabaseManager {
     
     public func conversationExists(with receiverEmail: String, completion: @escaping (Result<String, Error>) -> Void) {
         let email = receiverEmail.safeDatabaseKey()
-        guard let senderEmail = UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String else {
+        guard let senderEmail = UserDefaults.standard.value(forKey: "email") as? String else {
             return
         }
         let safeEmail = senderEmail.safeDatabaseKey()
