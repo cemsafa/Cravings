@@ -69,6 +69,7 @@ class ProfileVC: UIViewController {
                 self.titleLbl.text = data.bio
                 self.aboutMeLbl.text = data.aboutMe
                 self.followersLbl.text = "\(self.followers.count) followers"
+                
                 self.chatButton.isHidden = self.isLoggedInUser
                 self.followButton.isHidden = self.isLoggedInUser
                 self.editButton.isHidden = !self.isLoggedInUser
@@ -100,9 +101,9 @@ class ProfileVC: UIViewController {
     @IBAction func signoutBtnPressed(_ sender: UIBarButtonItem) {
         UserDefaults.standard.setValue(nil, forKey: UserProfileKeys.email.rawValue)
         UserDefaults.standard.setValue(nil, forKey: "name")
+        email = ""
         GIDSignIn.sharedInstance.signOut()
         FBSDKLoginKit.LoginManager().logOut()
-        email = ""
         AuthManager.shared.logOut { success in
             if success {
                 guard let loginVC = storyboard?.instantiateViewController(withIdentifier: "loginVC") else {

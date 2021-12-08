@@ -442,6 +442,7 @@ PODS:
   - FirebaseStorage (8.10.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
+  - Fuzzywuzzy_swift (0.0.2)
   - GoogleAppMeasurement (8.10.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.6)
@@ -553,6 +554,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Firestore
   - Firebase/Storage
+  - Fuzzywuzzy_swift (from `https://github.com/lxian/Fuzzywuzzy_swift.git`)
   - GoogleSignIn
   - JGProgressHUD
   - MessageKit
@@ -600,6 +602,15 @@ SPEC REPOS:
     - SteviaLayout
     - YPImagePicker
 
+EXTERNAL SOURCES:
+  Fuzzywuzzy_swift:
+    :git: https://github.com/lxian/Fuzzywuzzy_swift.git
+
+CHECKOUT OPTIONS:
+  Fuzzywuzzy_swift:
+    :commit: cb371fb2a0d4b0ffb1d0c16f17933405195f122d
+    :git: https://github.com/lxian/Fuzzywuzzy_swift.git
+
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
@@ -618,6 +629,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 0e7321a508cc9de54316ec45400caba6b5719beb
   FirebaseInstallations: 830327b45345ffc859eaa9c17bcd5ae893fd5425
   FirebaseStorage: 815410224b548172c578f02554a86bbc8f817f50
+  Fuzzywuzzy_swift: a2f9a77bb6d3f1d99dc6364eda541254124e393d
   GoogleAppMeasurement: a3311dbcf3ea651e5a070fe8559b57c174ada081
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleSignIn: fd381840dbe7c1137aa6dc30849a5c3e070c034a
@@ -639,6 +651,6 @@ SPEC CHECKSUMS:
   SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
   YPImagePicker: 1463a19a36244e209dcb03c30e63559c5afa9602
 
-PODFILE CHECKSUM: 69d73853a33d1daa5f34e140c539b5ff60bfa5f8
+PODFILE CHECKSUM: 19ba80a64e0a7f40d3a3725b82ceafb4d158934b
 
 COCOAPODS: 1.11.2

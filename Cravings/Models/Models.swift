@@ -82,7 +82,7 @@ public struct UserProfile {
     var websiteLink: String = ""
     var aboutMe: String = ""
     var bio: String = ""
-
+    
     static func userProfileWith(data: [String : Any]) -> UserProfile {
         guard let fullName = data[UserProfileKeys.fullName.rawValue] as? String, let userName = data[UserProfileKeys.userName.rawValue] as? String else {
             return UserProfile.init(userName: "", fullName: "")
