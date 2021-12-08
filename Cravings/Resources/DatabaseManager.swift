@@ -10,8 +10,10 @@ import FirebaseDatabase
 import CoreMedia
 import RealmSwift
 import AVFoundation
-import MessageKit
 import UIKit
+import FirebaseStorage
+import MessageKit
+import FirebaseFirestore
 
 public class DatabaseManager {
     
@@ -520,5 +522,158 @@ public class DatabaseManager {
     
     public enum DatabaseErrors: Error {
         case failedToFetch
+        case failedToUpload
     }
+    
+    public func updateUserProfile(fullName: String, bio: String, userName: String, websiteLink: String, aboutMe: String, completion: @escaping (Bool) -> Void) {
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [[String : String]], let index = value.firstIndex(where: { $0[UserProfileKeys.email.rawValue] == userEmail }) {
+                var userProfile = value[index]
+                userProfile[UserProfileKeys.userName.rawValue] = userName
+                userProfile[UserProfileKeys.fullName.rawValue] = fullName
+                userProfile[UserProfileKeys.bio.rawValue] = bio
+                userProfile[UserProfileKeys.websiteLink.rawValue] = websiteLink
+                userProfile[UserProfileKeys.aboutMe.rawValue] = aboutMe
+                self.database.child("users/\(index)").updateChildValues(userProfile) { error, _ in
+                    completion(error == nil)
+                }
+            }
+        }
+    }
+    
+    public func updateUserProfilePicture(profilePicURL: String, completion: @escaping (Bool) -> Void) {
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [[String : String]], let index = value.firstIndex(where: { $0[UserProfileKeys.email.rawValue] == userEmail }) {
+                var userProfile = value[index]
+                userProfile[UserProfileKeys.profilePic.rawValue] = profilePicURL
+                self.database.child("users/\(index)").updateChildValues(userProfile) { error, _ in
+                    completion(error == nil)
+                }
+            }
+        }
+    }
+    
+    public func getUserProfilePicture(email: String, completion: @escaping (String) -> Void) {
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [[String : String]], let userProfileData = value.first(where: { $0[UserProfileKeys.email.rawValue] == email }), let profilePicURL = userProfileData[UserProfileKeys.profilePic.rawValue]  {
+                completion(profilePicURL)
+            }
+        }
+    }
+    
+    public func getLoggedInUserProfile(completion: @escaping (Bool , UserProfile?) -> Void) {
+        self.getUserProfile(with: userEmail, completion: completion)
+    }
+    
+    public func getUserProfile(with email: String, completion: @escaping (Bool , UserProfile?) -> Void) {
+        self.database.child("users").observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [[String : String]], let userProfileData = value.first(where: { $0[UserProfileKeys.email.rawValue] == email }) {
+                completion(true, UserProfile.userProfileWith(data: userProfileData))
+            }
+            else {
+                completion(false, nil)
+            }
+        }
+    }
+    
+    public typealias UploadPostCompletion = (Result<Bool, Error>) -> Void
+    
+    public func uploadPost(post: Post, media: [String], completion: @escaping UploadPostCompletion) {
+        let post = [
+            PostKeys.usersTagged.rawValue : post.usersTagged,
+            PostKeys.media.rawValue : media,
+            PostKeys.likedUsers.rawValue : post.likedUsers,
+//            PostKeys.comments.rawValue : post.comments,
+            PostKeys.caption.rawValue : post.caption,
+            PostKeys.time.rawValue : post.time
+        ] as [String : Any]
+        
+        self.database.child(loggedInUserPostsPath).observeSingleEvent(of: .value) { snapshot in
+            if var collection = snapshot.value as? [[String: Any]] {
+                collection.append(post)
+                self.uploadPostWithCollection(collection: collection) { success in
+                    if success {
+                        completion(.success(true))
+                    }
+                    else {
+                        completion(.failure(DatabaseErrors.failedToUpload))
+                    }
+                }
+            } else {
+                let newCollection: [[String: Any]] = [post]
+                self.uploadPostWithCollection(collection: newCollection) { success in
+                    if success {
+                        completion(.success(true))
+                    }
+                    else {
+                        completion(.failure(DatabaseErrors.failedToUpload))
+                    }
+                }
+            }
+        }
+    }
+    
+    private func uploadPostWithCollection(collection: [[String: Any]], completion: @escaping (Bool) -> Void) {
+        self.database.child(loggedInUserPostsPath).setValue(collection) { error, _ in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+    }
+    
+    public func getUserPosts(email: String, completion: @escaping ([Post]) -> Void) {
+        self.database.child(postsPath(email: email)).observeSingleEvent(of: .value) { snapshot in
+            if let collection = snapshot.value as? [[String: Any]] {
+                var posts = [Post]()
+                for item in collection {
+                    posts.append(Post.postDataWith(data: item))
+                }
+                completion(posts)
+            } else {
+                completion([Post]())
+            }
+        }
+    }
+    
+    private func postsPath(email: String) -> String {
+        return "user_posts/\(email.safeDatabaseKey())"
+    }
+    
+}
+
+var userEmail: String {
+    return UserDefaults.standard.value(forKey: UserProfileKeys.email.rawValue) as? String ?? ""
+}
+
+var profilePicsPath: String {
+    return "profile_pics/\(userEmail.safeDatabaseKey()).jpg"
+}
+
+enum UserProfileKeys: String {
+    case email = "email"
+    case userName = "username"
+    case fullName = "name"
+    case bio = "bio"
+    case websiteLink = "website_link"
+    case aboutMe = "about_me"
+    case profilePic = "profile_pic"
+}
+
+enum PostKeys: String {
+    case usersTagged = "usersTagged"
+    case media = "media"
+    case likedUsers = "likedUsers"
+    case comments = "comments"
+    case caption = "caption"
+    case time = "time"
+}
+
+var loggedInUserPostsPath: String {
+    return "user_posts/\(userEmail.safeDatabaseKey())"
+}
+
+var userMediaPath: String {
+    return "user_posts/\(userEmail.safeDatabaseKey())/"
 }

@@ -14,6 +14,8 @@ pod 'Firebase/Database'
 pod 'Firebase/Analytics'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Storage'
+pod 'YPImagePicker'
+pod 'Fuzzywuzzy_swift', :git=> 'https://github.com/lxian/Fuzzywuzzy_swift.git'
 
 # Facebook
 pod 'FBSDKLoginKit'

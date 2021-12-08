@@ -50,6 +50,8 @@ extension UIView {
 
 }
 
+
+let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
 extension MessageKind {
     var messageKindString: String {
         switch self {

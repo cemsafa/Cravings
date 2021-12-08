@@ -108,7 +108,7 @@ class LoginVC: UIViewController {
     
     @IBAction func facebookLoginBtnTapped(_ sender: Any) {
         let loginManager = LoginManager()
-        loginManager.logIn(permissions: ["email" , "public_profile"], from: self) { result, error in
+        loginManager.logIn(permissions: ["email", "public_profile"], from: self) { result, error in
             if let error = error {
                 print(error.localizedDescription)
             } else if let result = result, result.isCancelled {
@@ -140,8 +140,7 @@ class LoginVC: UIViewController {
                                 let user = User(email: email, username: userName, fullname: fullname)
                                 DatabaseManager.shared.insertNewUser(with: user) { success in
                                     if success {
-                                        let filename = user.profilePictureFilename
-                                        StorageManager.shared.uploadProfilePicture(with: data, filename: filename) { result in
+                                        StorageManager.shared.uploadProfilePicture(with: data) { result in
                                             switch result {
                                             case .success(let downloadURL):
                                                 UserDefaults.standard.set(downloadURL, forKey: "profile_picture_url")
@@ -199,7 +198,7 @@ class LoginVC: UIViewController {
                                     guard let data = data else { return }
                                     
                                     let filename = googleUser.profilePictureFilename
-                                    StorageManager.shared.uploadProfilePicture(with: data, filename: filename) { result in
+                                    StorageManager.shared.uploadProfilePicture(with: data) { result in
                                         switch result {
                                         case .success(let downloadURL):
                                             UserDefaults.standard.set(downloadURL, forKey: "profile_picture_url")
