@@ -63,6 +63,7 @@ class CameraVC: UIViewController {
     
     func restUI() {
         self.selectedMedia = [YPMediaItem]()
+        self.captionTextField.text = ""
         updateUI()
         self.collectionView.reloadData()
     }
@@ -136,7 +137,7 @@ class CameraVC: UIViewController {
         StorageManager.shared.addPost(with: post, media: postMedia) { result in
             switch result {
                 case .success(_):       
-                    self.reloadUI()
+                    self.restUI()
                     self.tabBarController?.selectedIndex = 0
                 case .failure(let error):
                     self.showAlert(message: error.localizedDescription)
