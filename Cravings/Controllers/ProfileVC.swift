@@ -53,8 +53,8 @@ class ProfileVC: UIViewController {
         collectionView?.register(UINib.init(nibName: "AddPostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddPostCollectionViewCell")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         if email.isEmpty {
             email = userEmail
         }
