@@ -547,7 +547,7 @@ public class DatabaseManager {
                 var userProfile = value[index]
                 userProfile[UserProfileKeys.profilePic.rawValue] = profilePicURL
                 self.database.child("users/\(index)").updateChildValues(userProfile) { error, _ in
-                    completion(error != nil)
+                    completion(error == nil)
                 }
             }
         }
